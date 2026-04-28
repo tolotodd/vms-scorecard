@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ITAR VMS Scorecard — Tolomatic</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+h1{font-size:26px;font-weight:800;color:#f1f5f9;letter-spacing:-0.02em}
+h2{font-size:13px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#3b82f6;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(30,64,175,0.25)}
+button{font-family:inherit;cursor:pointer}
+input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;outline:none;cursor:pointer;border:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#f1f5f9;border:2px solid #334155;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#f1f5f9;border:2px solid #334155;cursor:pointer}
+input[type=text],textarea{font-family:inherit;background:#0f172a;color:#f1f5f9;border:1px solid #334155;border-radius:6px;padding:9px 12px;font-size:14px;outline:none;width:100%}
+input[type=text]:focus,textarea:focus{border-color:#3b82f6}
+textarea{resize:vertical;min-height:90px;line-height:1.5}
+select{font-family:inherit;background:#1e293b;color:#f1f5f9;border:1px solid #334155;border-radius:6px;padding:8px 12px;font-size:13px;outline:none;cursor:pointer;width:100%}
+select:focus{border-color:#3b82f6}
+.layout{max-width:1240px;margin:0 auto;padding:24px}
+.grid{display:grid;grid-template-columns:1fr 400px;gap:24px;align-items:start}
+.sticky{position:sticky;top:24px}
+.card{background:#1e293b;border-radius:12px;border:1px solid #334155;padding:20px;margin-bottom:16px}
+.badge{text-align:center;border-radius:8px;padding:8px 16px}
+.bar-wrap{flex:1;height:6px;background:#0f172a;border-radius:3px;overflow:hidden}
+.bar-inner{height:100%;border-radius:3px;transition:width 0.4s ease}
+.cat-bar-wrap{flex:1;height:4px;background:#0f172a;border-radius:2px;overflow:hidden}
+.cat-bar-inner{height:100%;border-radius:2px;transition:width 0.4s ease}
+.feature-row{display:flex;align-items:flex-start;justify-content:space-between;padding:7px 10px;margin-bottom:3px;border-radius:6px;gap:12px;border-left:3px solid #334155;transition:background 0.2s,border-color 0.2s}
+.slider-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;min-width:180px}
+.slider-label{font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-align:right}
+.rank-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #334155}
+.rank-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.rank-num{width:28px;height:28px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.submit-btn{width:100%;padding:11px 0;border-radius:8px;background:linear-gradient(135deg,#1d4ed8,#2563eb);border:none;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.02em;box-shadow:0 4px 14px rgba(37,99,235,0.25);transition:opacity 0.2s}
+.submit-btn:hover{opacity:0.9}
+.persona-btn{padding:7px 14px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px;font-weight:600;transition:all 0.15s}
+.persona-btn.active{border-color:#3b82f6;background:#3b82f620;color:#3b82f6}
+.persona-btn:hover:not(.active){border-color:#475569;color:#94a3b8}
+.tooltip{position:relative;display:inline-block;cursor:help;color:#64748b;font-size:11px;margin-left:4px}
+.na-badge{display:inline-block;padding:2px 7px;border-radius:4px;background:#334155;color:#64748b;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
+.section-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;margin-top:16px}
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.sticky{position:static}}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- HEADER -->
+  <div style="border-bottom:1px solid #334155;padding-bottom:20px;margin-bottom:24px">
+    <div style="margin-bottom:4px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.15em;text-transform:uppercase">ITAR / CMMC Level 2 — Tolomatic, Inc.</div>
+    <h1>Visitor Management System Scorecard</h1>
+    <p style="margin-top:6px;font-size:13px;color:#64748b;max-width:700px">Rate each feature by its importance to <em>your role</em>. Start by selecting your persona below — it pre-loads sensible defaults you can adjust. When done, add your name and any notes, then click Submit.</p>
+
+    <!-- NA EXPLAINER BOX -->
+    <div style="margin-top:16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:8px;padding:12px 16px;max-width:860px">
+      <div style="font-size:11px;font-weight:800;color:#818cf8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Understanding the rating scale</div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;line-height:1.6;color:#94a3b8">
+        <span><strong style="color:#475569">N/A</strong> — This feature is not relevant to my role or Tolomatic's needs. <em>Excluded from scoring entirely.</em></span>
+        <span><strong style="color:#94a3b8">1 · Not Needed</strong> — I understand it, but we don't need it. <em>Counts against vendors that lack it slightly.</em></span>
+        <span><strong style="color:#3b82f6">2 · Nice to Have</strong> — Useful but not critical.</span>
+        <span><strong style="color:#dc2626">3 · Must Have</strong> — A requirement. Vendors without this are disqualified in my view.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONA SELECTOR -->
+  <div class="card" style="margin-bottom:24px">
+    <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px">Step 1 — Select your role to pre-load defaults (you can adjust any slider after)</div>
+    <div id="persona-btns" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: FEATURES -->
+    <div id="features-col"></div>
+
+    <!-- RIGHT: RESULTS + SUBMIT -->
+    <div class="sticky">
+
+      <!-- RESULTS -->
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px">Stack-Ranked Results</div>
+        <div id="results-list"></div>
+      </div>
+
+      <!-- WINNER -->
+      <div id="winner-box" class="card" style="margin-bottom:16px"></div>
+
+      <!-- PRICING -->
+      <div class="card" style="margin-bottom:16px">
+        <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px">Estimated Monthly Cost <span style="font-weight:400;text-transform:none;letter-spacing:0">(1 site · &lt;50 visitors/mo · 3 admins)</span></div>
+        <div id="pricing-list"></div>
+        <div style="margin-top:10px;font-size:10px;color:#475569;line-height:1.6">† Published pricing. ‡ Estimated from review sites &amp; community data — request a quote to confirm. Verkada requires hardware purchase (cameras/access control) to unlock full Guest module value; software cost shown separately.</div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="card" id="submit-card">
+        <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px">Step 2 — Submit your results</div>
+
+        <div style="margin-bottom:12px">
+          <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:6px">Your Name <span style="color:#dc2626">*</span></label>
+          <input type="text" id="reviewer-name" placeholder="First Last"/>
+          <div id="name-error" style="display:none;font-size:11px;color:#dc2626;margin-top:4px">Please enter your name before submitting.</div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:6px">Additional Notes <span style="font-size:11px;font-weight:400">(optional — anything else Todd should know)</span></label>
+          <textarea id="reviewer-notes" placeholder="e.g. We frequently have last-minute walk-in contractors. The front desk is unmanned after 4pm..."></textarea>
+        </div>
+
+        <div style="font-size:12px;color:#475569;margin-bottom:14px;line-height:1.6">
+          Clicking Submit opens your email client with your full scorecard pre-filled, addressed to Todd Norman at Tolomatic. Just hit <strong style="color:#94a3b8">Send</strong>.
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">Submit My Scorecard →</button>
+      </div>
+
+      <div id="submit-success" style="display:none" class="card" style="text-align:center">
+        <div style="text-align:center">
+          <div style="font-size:36px;margin-bottom:10px">✅</div>
+          <div style="font-weight:700;color:#22c55e;font-size:15px;margin-bottom:8px">Email Client Opened!</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.6">Your results are pre-filled and addressed to <strong style="color:#94a3b8">todd_norman@tolomatic.com</strong>. Hit Send in your email client.</div>
+          <button onclick="resetSubmit()" style="margin-top:14px;padding:6px 16px;border-radius:6px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px">← Go back &amp; adjust</button>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;font-size:11px;color:#334155;text-align:center">✓ Confirmed &nbsp;~ Partial/Unverified &nbsp;✗ Not Available</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────
+const RECIPIENT = "todd_norman@tolomatic.com";
+
+const VENDORS = [
+  { id:"ocr",      name:"OCR Inc.",           short:"OCR",         color:"#7c3aed", price:"~$150‡",  priceNote:"Est. based on SMB tier" },
+  { id:"facility", name:"FacilityOS",          short:"FacilityOS",  color:"#059669", price:"~$300‡",  priceNote:"Est. compliance tier" },
+  { id:"signin",   name:"Sign In Solutions",   short:"Sign In",     color:"#0891b2", price:"~$199†",  priceNote:"Published Standard plan" },
+  { id:"recep",    name:"The Receptionist",    short:"Receptionist",color:"#d97706", price:"~$149†",  priceNote:"Published Core plan" },
+  { id:"lobby",    name:"LobbyGuard",          short:"LobbyGuard",  color:"#db2777", price:"~$99‡",   priceNote:"Est. base plan" },
+  { id:"verkada",  name:"Verkada Guest",       short:"Verkada",     color:"#0ea5e9", price:"~$400‡",  priceNote:"Est. software only; hardware extra" },
+];
+
+// Scores: 0=No, 1=Partial/Unverified, 2=Full/Confirmed
+const CATEGORIES = [
+  { id:"itar", label:"ITAR / Compliance", features:[
+    { id:"itar_workflows",     label:"ITAR-specific visitor workflows",                scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
+    { id:"cmmc_docs",          label:"CMMC Level 2 alignment documentation",           scores:{ocr:0,facility:2,signin:1,recep:1,lobby:0,verkada:0} },
+    { id:"nationality_verify", label:"US citizenship / nationality verification",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"export_control_q",   label:"Export control questionnaire (customizable)",   scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
+    { id:"nda_esign",          label:"NDA / legal doc e-signature at check-in",       scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"zone_restrict",      label:"Visitor access level / area restrictions",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"watchlist",          label:"Watchlist / denied party screening (built-in)", scores:{ocr:1,facility:2,signin:0,recep:0,lobby:2,verkada:1} },
+    { id:"audit_trail",        label:"Tamper-evident audit trail & logs",             scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"compliance_report",  label:"Automated compliance reporting",                scores:{ocr:2,facility:2,signin:1,recep:1,lobby:1,verkada:0} },
+    { id:"itar_audit_support",  label:"ITAR audit support / legal defensibility docs",scores:{ocr:2,facility:2,signin:1,recep:1,lobby:0,verkada:0} },
+    { id:"data_retention",     label:"Visitor data retention policy controls",        scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
+  ]},
+  { id:"security", label:"Data Security & Sovereignty", features:[
+    { id:"cloud_saas",  label:"Cloud-hosted SaaS (no on-prem server required)",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"us_data",     label:"Confirmed US-only data center residency",          scores:{ocr:2,facility:2,signin:1,recep:2,lobby:1,verkada:1} },
+    { id:"soc2",        label:"SOC 2 Type II certified",                          scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+    { id:"encryption",  label:"Data encryption at rest & in transit",             scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"rbac",        label:"Role-based admin access controls (RBAC)",          scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"sso",         label:"SSO / Active Directory (Entra ID) integration",    scores:{ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+    { id:"mfa",         label:"MFA for admin portal",                             scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+    { id:"gdpr_tools",  label:"GDPR compliance tools (required for DE location)", scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+  ]},
+  { id:"checkin", label:"Check-In Experience & Hardware", features:[
+    { id:"kiosk",           label:"Self-service iPad / tablet kiosk",              scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"id_scan",         label:"Government-issued ID scan & image capture",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"passport",        label:"Passport scan support",                         scores:{ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2} },
+    { id:"photo",           label:"Photo capture at check-in",                     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"preregister",     label:"Pre-registration / pre-screening by host",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"badge_print",     label:"Visitor badge printing",                        scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"qr",              label:"QR code / PIN-based check-in",                  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"walkin",          label:"Walk-in (unscheduled) visitor handling",        scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"contractor",      label:"Contractor / recurring visitor management",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"multilingual",    label:"Multi-language kiosk support",                  scores:{ocr:1,facility:2,signin:2,recep:1,lobby:1,verkada:2} },
+    { id:"branded_kiosk",   label:"Branded / professional kiosk appearance",       scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+  ]},
+  { id:"receptionless", label:"Receptionless / Autonomous Operation", features:[
+    { id:"fully_selfservice",  label:"Fully self-service: visitor completes entire check-in without staff",         scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"host_auto_notify",   label:"Automatic host notification when visitor arrives (no staff trigger needed)",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"no_show_escalation", label:"Escalation workflow if host doesn't respond (notify backup contact)",         scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
+    { id:"after_hours",        label:"Handles after-hours / unstaffed lobby gracefully",                            scores:{ocr:1,facility:2,signin:1,recep:2,lobby:1,verkada:2} },
+    { id:"intercom",           label:"Intercom / two-way communication at kiosk",                                   scores:{ocr:0,facility:1,signin:0,recep:0,lobby:0,verkada:2} },
+    { id:"mobile_host_app",    label:"Mobile app for hosts to approve, notify, or deny visitors",                   scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"delivery_handling",  label:"Delivery / non-visitor check-in support",                                     scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"offline_mode",       label:"Offline / degraded-mode check-in if internet drops",                          scores:{ocr:0,facility:0,signin:0,recep:2,lobby:0,verkada:0} },
+  ]},
+  { id:"notifications", label:"Notifications & Safety", features:[
+    { id:"host_notify",   label:"Instant host notification (email / SMS / Teams)",   scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"denied_alert",  label:"Denied / flagged visitor instant alert to security", scores:{ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2} },
+    { id:"evac",          label:"Emergency evacuation mustering / headcount",         scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+  ]},
+  { id:"integrations", label:"Integrations & Ecosystem", features:[
+    { id:"teams_slack",   label:"MS Teams / Slack integration",                   scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+    { id:"calendar",      label:"Calendar integration (Outlook / Google)",        scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+    { id:"access_ctrl",   label:"Physical access control system integration",     scores:{ocr:0,facility:2,signin:0,recep:2,lobby:0,verkada:2} },
+    { id:"camera_int",    label:"Camera / video system integration",              scores:{ocr:1,facility:1,signin:0,recep:0,lobby:0,verkada:2} },
+    { id:"api",           label:"API / webhook for custom integrations",          scores:{ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+  ]},
+  { id:"scalability", label:"Scalability & Multi-Site", features:[
+    { id:"multi_door",     label:"Multi-door / multi-entry support at single site",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"multi_site",     label:"Easy expansion to additional buildings / sites",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
+    { id:"global_cn",      label:"Global location support — China (CN) facility",       scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2}, isGlobal:true, region:"CN" },
+    { id:"global_mx",      label:"Global location support — Mexico (MX) facility",      scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2}, isGlobal:true, region:"MX" },
+    { id:"global_de",      label:"Global location support — Germany (DE) facility",     scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2}, isGlobal:true, region:"DE" },
+    { id:"gdpr_de",        label:"GDPR-compliant data handling for DE location",         scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1}, isGlobal:true, region:"DE" },
+    { id:"centralized_mgmt",label:"Centralized admin management across all locations",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+  ]},
+  { id:"ux", label:"Visitor Experience & Ease of Use", features:[
+    { id:"ease_of_use",      label:"Minimal staff training required to administer",      scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"visitor_exp",      label:"Professional, polished visitor-facing experience",   scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"setup_speed",      label:"Fast implementation (days not months)",              scores:{ocr:1,facility:1,signin:2,recep:2,lobby:2,verkada:1} },
+    { id:"support_quality",  label:"Responsive US-based customer support",               scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
+  ]},
+  { id:"cost", label:"Cost & Vendor Health", features:[
+    { id:"transparent_price", label:"Transparent / published pricing (no surprise quotes)", scores:{ocr:0,facility:0,signin:2,recep:2,lobby:1,verkada:0} },
+    { id:"no_contract",       label:"Month-to-month / no long-term contract required",      scores:{ocr:0,facility:1,signin:2,recep:2,lobby:1,verkada:0} },
+    { id:"tco",               label:"Low total cost of ownership for our scale",             scores:{ocr:1,facility:1,signin:2,recep:2,lobby:2,verkada:0} },
+    { id:"vendor_stability",  label:"Vendor financial stability / market longevity",         scores:{ocr:2,facility:1,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"onboarding",        label:"Dedicated onboarding & implementation support",         scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
+    { id:"sla",               label:"SLA-backed uptime guarantee",                           scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+  ]},
+];
+
+// ─────────────────────────────────────────────
+// PERSONA DEFAULT WEIGHTS
+// N/A=0, 1=Not Needed, 2=Nice to Have, 3=Must Have
+// ─────────────────────────────────────────────
+const PERSONAS = [
+  { id:"ops",        label:"Ops Director",       icon:"⚙️",
+    defaults:{ itar_workflows:3,cmmc_docs:2,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:2, cloud_saas:3,us_data:2,soc2:2,encryption:2,rbac:2,sso:2,mfa:2,gdpr_tools:1, kiosk:3,id_scan:3,passport:2,photo:2,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:2,branded_kiosk:2, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:2,camera_int:1,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:2,setup_speed:2,support_quality:2, transparent_price:2,no_contract:1,tco:2,vendor_stability:2,onboarding:2,sla:2 } },
+  { id:"eng",        label:"Engineering Director",icon:"🔧",
+    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:2, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:3,passport:3,photo:2,preregister:3,badge_print:3,qr:2,walkin:2,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:2, host_notify:3,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:2,camera_int:1,api:3, multi_door:3,multi_site:2,global_cn:3,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:2,visitor_exp:1,setup_speed:2,support_quality:2, transparent_price:1,no_contract:1,tco:2,vendor_stability:2,onboarding:2,sla:2 } },
+  { id:"ceo",        label:"CEO",                 icon:"👔",
+    defaults:{ itar_workflows:2,cmmc_docs:2,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:2,itar_audit_support:2,data_retention:1, cloud_saas:2,us_data:2,soc2:2,encryption:1,rbac:1,sso:1,mfa:1,gdpr_tools:1, kiosk:2,id_scan:2,passport:1,photo:2,preregister:2,badge_print:2,qr:1,walkin:2,contractor:2,multilingual:2,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:1,offline_mode:1, host_notify:2,denied_alert:2,evac:2, teams_slack:3,calendar:3,access_ctrl:1,camera_int:1,api:1, multi_door:2,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:2, transparent_price:3,no_contract:3,tco:3,vendor_stability:3,onboarding:2,sla:2 } },
+  { id:"cfo",        label:"CFO",                 icon:"💰",
+    defaults:{ itar_workflows:2,cmmc_docs:2,nationality_verify:2,export_control_q:1,nda_esign:2,zone_restrict:1,watchlist:1,audit_trail:2,compliance_report:2,itar_audit_support:2,data_retention:1, cloud_saas:2,us_data:2,soc2:2,encryption:1,rbac:1,sso:1,mfa:1,gdpr_tools:1, kiosk:1,id_scan:1,passport:1,photo:1,preregister:1,badge_print:1,qr:1,walkin:1,contractor:1,multilingual:1,branded_kiosk:2, fully_selfservice:3,host_auto_notify:2,no_show_escalation:1,after_hours:1,intercom:0,mobile_host_app:2,delivery_handling:0,offline_mode:0, host_notify:1,denied_alert:2,evac:2, teams_slack:2,calendar:2,access_ctrl:0,camera_int:0,api:0, multi_door:2,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:2,setup_speed:3,support_quality:2, transparent_price:3,no_contract:3,tco:3,vendor_stability:3,onboarding:2,sla:2 } },
+  { id:"hr",         label:"HR",                  icon:"🤝",
+    defaults:{ itar_workflows:2,cmmc_docs:1,nationality_verify:2,export_control_q:2,nda_esign:3,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:1,itar_audit_support:1,data_retention:2, cloud_saas:2,us_data:2,soc2:1,encryption:1,rbac:2,sso:2,mfa:1,gdpr_tools:2, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:2,evac:3, teams_slack:3,calendar:3,access_ctrl:1,camera_int:0,api:1, multi_door:2,multi_site:2,global_cn:1,global_mx:1,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:3,visitor_exp:3,setup_speed:2,support_quality:3, transparent_price:2,no_contract:2,tco:2,vendor_stability:2,onboarding:3,sla:1 } },
+  { id:"recept",     label:"Receptionist",        icon:"🖥️",
+    defaults:{ itar_workflows:2,cmmc_docs:0,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:1,compliance_report:0,itar_audit_support:0,data_retention:0, cloud_saas:2,us_data:0,soc2:0,encryption:0,rbac:1,sso:2,mfa:0,gdpr_tools:0, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:3,mobile_host_app:3,delivery_handling:3,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:3,calendar:3,access_ctrl:0,camera_int:0,api:0, multi_door:3,multi_site:1,global_cn:0,global_mx:0,global_de:0,gdpr_de:0,centralized_mgmt:1, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:3, transparent_price:0,no_contract:0,tco:0,vendor_stability:0,onboarding:3,sla:2 } },
+  { id:"it",         label:"IT",                  icon:"💻",
+    defaults:{ itar_workflows:2,cmmc_docs:3,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:3, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:2,passport:2,photo:2,preregister:2,badge_print:2,qr:2,walkin:2,contractor:2,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:2,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:3, host_notify:2,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:3,camera_int:2,api:3, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:3,centralized_mgmt:3, ease_of_use:2,visitor_exp:1,setup_speed:3,support_quality:3, transparent_price:2,no_contract:2,tco:3,vendor_stability:2,onboarding:2,sla:3 } },
+  { id:"security",   label:"Security/Compliance", icon:"🛡️",
+    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:3, cloud_saas:2,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:3, kiosk:2,id_scan:3,passport:3,photo:3,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:3,camera_int:2,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:3,gdpr_de:3,centralized_mgmt:3, ease_of_use:1,visitor_exp:1,setup_speed:1,support_quality:2, transparent_price:1,no_contract:1,tco:1,vendor_stability:3,onboarding:2,sla:3 } },
+];
+
+// Global location features that show conditional sub-questions
+const GLOBAL_FEATURES = { global_cn:"CN", global_mx:"MX", global_de:"DE", gdpr_de:"DE" };
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+const allFeatures = CATEGORIES.flatMap(c => c.features);
+let weights = Object.fromEntries(allFeatures.map(f => [f.id, 2]));
+let activePersona = null;
+
+// Global location toggles (yes/no determines if global features are visible)
+let globalNeeded = { CN: false, MX: false, DE: false };
+
+// ─────────────────────────────────────────────
+// SCORING
+// ─────────────────────────────────────────────
+function computeScores() {
+  return VENDORS.map(v => {
+    let total = 0, maxT = 0;
+    const cats = {};
+    CATEGORIES.forEach(cat => {
+      let cs = 0, cm = 0;
+      cat.features.forEach(f => {
+        const region = GLOBAL_FEATURES[f.id];
+        if (region && !globalNeeded[region]) return; // skip if location not needed
+        const w = weights[f.id];
+        if (w === 0) return; // N/A
+        if (w === 1) { // Not Needed — mild penalty for missing
+          if (f.scores[v.id] === 0) { cs += 0; cm += 0.5; } // slight drag
+          return;
+        }
+        const m = w === 3 ? 3 : 1;
+        cs += f.scores[v.id] * m;
+        cm += 2 * m;
+      });
+      cats[cat.id] = { s: cs, m: cm, label: cat.label };
+      total += cs; maxT += cm;
+    });
+    const pct = maxT > 0 ? (total / maxT) * 100 : 0;
+    return { ...v, total, maxT, pct, cats };
+  }).sort((a,b) => b.pct - a.pct);
+}
+
+// ─────────────────────────────────────────────
+// RENDER HELPERS
+// ─────────────────────────────────────────────
+const W_COLORS  = { 0:"#334155", 1:"#64748b", 2:"#3b82f6", 3:"#dc2626" };
+const W_LABELS  = { 0:"N/A", 1:"Not Needed", 2:"Nice to Have", 3:"Must Have" };
+const W_BG      = { 0:"transparent", 1:"rgba(255,255,255,0.03)", 2:"rgba(255,255,255,0.06)", 3:"rgba(220,38,38,0.07)" };
+
+function sliderGradient(val) {
+  const pct = (val / 3) * 100;
+  return `linear-gradient(to right, ${W_COLORS[val]} 0%, ${W_COLORS[val]} ${pct}%, #1e293b ${pct}%, #1e293b 100%)`;
+}
+
+function renderFeatureRow(f) {
+  const w = weights[f.id];
+  const isGlobal = !!GLOBAL_FEATURES[f.id];
+  const region = GLOBAL_FEATURES[f.id];
+  const hidden = isGlobal && !globalNeeded[region];
+
+  const row = document.createElement('div');
+  row.className = 'feature-row';
+  row.id = 'row-' + f.id;
+  row.style.cssText = `background:${W_BG[w]};border-left-color:${W_COLORS[w]};${hidden?'display:none':''}`;
+
+  const labelDiv = document.createElement('div');
+  labelDiv.style.cssText = 'flex:1;font-size:13px;line-height:1.4';
+  labelDiv.style.color = w === 0 ? '#334155' : w === 1 ? '#475569' : '#cbd5e1';
+  labelDiv.textContent = f.label;
+
+  const sliderWrap = document.createElement('div');
+  sliderWrap.className = 'slider-wrap';
+
+  const slider = document.createElement('input');
+  slider.type = 'range';
+  slider.min = 0; slider.max = 3; slider.step = 1;
+  slider.value = w;
+  slider.style.cssText = `width:90px;background:${sliderGradient(w)}`;
+  slider.addEventListener('input', () => {
+    weights[f.id] = Number(slider.value);
+    updateRow(f.id);
+    renderResults();
+  });
+
+  const lbl = document.createElement('div');
+  lbl.className = 'slider-label';
+  lbl.id = 'lbl-' + f.id;
+  lbl.style.color = W_COLORS[w];
+  lbl.textContent = W_LABELS[w];
+
+  sliderWrap.appendChild(slider);
+  sliderWrap.appendChild(lbl);
+  row.appendChild(labelDiv);
+  row.appendChild(sliderWrap);
+  return row;
+}
+
+function updateRow(fid) {
+  const w = weights[fid];
+  const row = document.getElementById('row-' + fid);
+  if (!row) return;
+  row.style.background = W_BG[w];
+  row.style.borderLeftColor = W_COLORS[w];
+  const labelDiv = row.querySelector('div');
+  labelDiv.style.color = w === 0 ? '#334155' : w === 1 ? '#475569' : '#cbd5e1';
+  const slider = row.querySelector('input[type=range]');
+  slider.value = w;
+  slider.style.background = sliderGradient(w);
+  const lbl = document.getElementById('lbl-' + fid);
+  if (lbl) { lbl.style.color = W_COLORS[w]; lbl.textContent = W_LABELS[w]; }
+}
+
+function renderFeaturesCol() {
+  const col = document.getElementById('features-col');
+  col.innerHTML = '';
+
+  // Global location toggles
+  const gSection = document.createElement('div');
+  gSection.style.cssText = 'margin-bottom:24px;background:#1e293b;border-radius:12px;border:1px solid #334155;padding:16px';
+  gSection.innerHTML = `<h2 style="margin-bottom:12px">Global Location Coverage</h2>
+    <p style="font-size:12px;color:#64748b;margin-bottom:14px;line-height:1.6">Does this VMS solution also need to cover Tolomatic's international locations? Toggle on any that apply — this will unlock the relevant features below.</p>`;
+
+  [['CN','China (CN) facility'],['MX','Mexico (MX) facility'],['DE','Germany (DE) facility — GDPR applies']].forEach(([code,lbl])=>{
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.04);border:1px solid #334155';
+    row.innerHTML = `<span style="font-size:13px;color:#cbd5e1">${lbl}</span>
+      <div style="display:flex;gap:8px">
+        <button id="gbtn-${code}-no" onclick="setGlobal('${code}',false)" class="persona-btn ${!globalNeeded[code]?'active':''}" style="padding:4px 12px;font-size:11px">Not needed</button>
+        <button id="gbtn-${code}-yes" onclick="setGlobal('${code}',true)" class="persona-btn ${globalNeeded[code]?'active':''}" style="padding:4px 12px;font-size:11px">Yes, include it</button>
+      </div>`;
+    gSection.appendChild(row);
+  });
+  col.appendChild(gSection);
+
+  CATEGORIES.forEach(cat => {
+    const section = document.createElement('div');
+    section.style.marginBottom = '20px';
+    const h = document.createElement('h2');
+    h.textContent = cat.label;
+    section.appendChild(h);
+    cat.features.forEach(f => section.appendChild(renderFeatureRow(f)));
+    col.appendChild(section);
+  });
+}
+
+function setGlobal(code, val) {
+  globalNeeded[code] = val;
+  // Update button styles
+  document.getElementById(`gbtn-${code}-no`).classList.toggle('active', !val);
+  document.getElementById(`gbtn-${code}-yes`).classList.toggle('active', val);
+  // Show/hide relevant feature rows
+  allFeatures.filter(f => GLOBAL_FEATURES[f.id] === code).forEach(f => {
+    const row = document.getElementById('row-' + f.id);
+    if (row) row.style.display = val ? 'flex' : 'none';
+  });
+  renderResults();
+}
+
+function renderResults() {
+  const ranked = computeScores();
+  const list = document.getElementById('results-list');
+  list.innerHTML = '';
+
+  ranked.forEach((v,i) => {
+    const item = document.createElement('div');
+    item.className = 'rank-item';
+
+    const top = document.createElement('div');
+    top.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:10px';
+
+    const num = document.createElement('div');
+    num.className = 'rank-num';
+    num.style.cssText = `background:${i===0?'linear-gradient(135deg,#f59e0b,#d97706)':'#0f172a'};border:2px solid ${i===0?'#f59e0b':v.color};color:${i===0?'#0f172a':v.color}`;
+    num.textContent = i+1;
+
+    const info = document.createElement('div');
+    info.style.flex = '1';
+    info.innerHTML = `<div style="font-weight:700;font-size:15px;color:${i===0?'#f1f5f9':'#94a3b8'}">${v.name}</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:3px">
+        <div class="bar-wrap"><div class="bar-inner" style="width:${v.pct}%;background:linear-gradient(90deg,${v.color}80,${v.color})"></div></div>
+        <span style="font-size:13px;font-weight:700;color:${v.color};min-width:36px">${Math.round(v.pct)}%</span>
+      </div>`;
+
+    top.appendChild(num);
+    top.appendChild(info);
+    item.appendChild(top);
+
+    // Category bars
+    const bars = document.createElement('div');
+    bars.style.paddingLeft = '38px';
+    CATEGORIES.forEach(cat => {
+      const bd = v.cats[cat.id];
+      if (!bd || bd.m === 0) return;
+      const p = Math.min((bd.s / bd.m) * 100, 100);
+      const barColor = p >= 80 ? '#22c55e' : p >= 55 ? '#f59e0b' : '#ef4444';
+      bars.innerHTML += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+        <div style="font-size:10px;color:#475569;width:130px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${cat.label}</div>
+        <div class="cat-bar-wrap"><div class="cat-bar-inner" style="width:${p}%;background:${barColor}"></div></div>
+        <span style="font-size:10px;color:#475569;width:28px;text-align:right">${Math.round(p)}%</span>
+      </div>`;
+    });
+    item.appendChild(bars);
+    list.appendChild(item);
+  });
+
+  // Winner box
+  const winner = ranked[0];
+  const wb = document.getElementById('winner-box');
+  wb.style.cssText = `background:linear-gradient(135deg,${winner.color}20,${winner.color}10);border:1px solid ${winner.color}40;border-radius:10px;padding:16px;margin-bottom:16px`;
+  const gap = winner.pct - (ranked[1]?.pct||0);
+  wb.innerHTML = `<div style="font-size:10px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px">🏆 Current Leader</div>
+    <div style="font-size:16px;font-weight:800;color:#f1f5f9;margin-bottom:4px">${winner.name}</div>
+    <div style="font-size:12px;color:#94a3b8">Scores <strong style="color:${winner.color}">${Math.round(winner.pct)}%</strong> of weighted requirements. ${gap > 5 ? 'Clear frontrunner based on your weights.' : 'Close race — adjust sliders to explore sensitivity.'}</div>`;
+
+  // Pricing list
+  const pl = document.getElementById('pricing-list');
+  pl.innerHTML = '';
+  ranked.forEach(v => {
+    pl.innerHTML += `<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1e293b">
+      <span style="font-size:13px;color:#94a3b8"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${v.color};margin-right:8px;vertical-align:middle"></span>${v.name}</span>
+      <div style="text-align:right">
+        <span style="font-size:14px;font-weight:700;color:#f1f5f9">${v.price}/mo</span>
+        <div style="font-size:10px;color:#475569">${v.priceNote}</div>
+      </div>
+    </div>`;
+  });
+}
+
+function renderPersonaButtons() {
+  const wrap = document.getElementById('persona-btns');
+  PERSONAS.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'persona-btn';
+    btn.id = 'persona-' + p.id;
+    btn.innerHTML = `${p.icon} ${p.label}`;
+    btn.onclick = () => selectPersona(p.id);
+    wrap.appendChild(btn);
+  });
+}
+
+function selectPersona(pid) {
+  activePersona = pid;
+  const persona = PERSONAS.find(p => p.id === pid);
+  if (!persona) return;
+  // Apply defaults
+  Object.entries(persona.defaults).forEach(([id, val]) => {
+    if (weights.hasOwnProperty(id)) weights[id] = val;
+  });
+  // Update all rows
+  allFeatures.forEach(f => updateRow(f.id));
+  // Update button states
+  document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('persona-' + pid)?.classList.add('active');
+  renderResults();
+}
+
+// ─────────────────────────────────────────────
+// SUBMIT
+// ─────────────────────────────────────────────
+function handleSubmit() {
+  const nameEl = document.getElementById('reviewer-name');
+  const notesEl = document.getElementById('reviewer-notes');
+  const errEl = document.getElementById('name-error');
+  if (!nameEl.value.trim()) { errEl.style.display='block'; return; }
+  errEl.style.display = 'none';
+
+  const ranked = computeScores();
+  const name = nameEl.value.trim();
+  const notes = notesEl.value.trim();
+  const persona = PERSONAS.find(p => p.id === activePersona);
+  const ts = new Date().toISOString();
+
+  // ── STRUCTURED BLOCK (Claude-digestible) ──
+  const structuredWeights = allFeatures.map(f => `"${f.id}":${weights[f.id]}`).join(',');
+  const structuredRanked = ranked.map((v,i) => `{"rank":${i+1},"vendor":"${v.id}","name":"${v.name}","pct":${Math.round(v.pct)}}`).join(',');
+  const globalState = `{"CN":${globalNeeded.CN},"MX":${globalNeeded.MX},"DE":${globalNeeded.DE}}`;
+
+  const structured = `===SCORECARD_DATA_START===
+{
+  "reviewer": "${name}",
+  "persona": "${persona ? persona.label : 'Not selected'}",
+  "timestamp": "${ts}",
+  "globalLocations": ${globalState},
+  "weights": {${structuredWeights}},
+  "ranked": [${structuredRanked}],
+  "notes": ${JSON.stringify(notes||'')}
+}
+===SCORECARD_DATA_END===`;
+
+  // ── HUMAN-READABLE BLOCK ──
+  const rankLines = ranked.map((v,i) => `  ${i+1}. ${v.name} — ${Math.round(v.pct)}%`).join('\n');
+  const mustHaves = allFeatures.filter(f => weights[f.id]===3).map(f=>`  • ${f.label}`).join('\n');
+  const naItems   = allFeatures.filter(f => weights[f.id]===0).map(f=>`  • ${f.label}`).join('\n');
+  const notNeeded = allFeatures.filter(f => weights[f.id]===1).map(f=>`  • ${f.label}`).join('\n');
+  const globalSummary = Object.entries(globalNeeded).map(([k,v])=>`  ${k}: ${v?'Yes — include':'Not needed'}`).join('\n');
+
+  const featureLines = CATEGORIES.map(cat => {
+    const lines = cat.features.map(f => {
+      const region = GLOBAL_FEATURES[f.id];
+      if (region && !globalNeeded[region]) return null;
+      return `    [${weights[f.id]}] ${W_LABELS[weights[f.id]].padEnd(13)} ${f.label}`;
+    }).filter(Boolean).join('\n');
+    return `${cat.label}\n${lines}`;
+  }).join('\n\n');
+
+  const body = [
+    structured,
+    '',
+    '════════════════════════════════════════',
+    'ITAR / CMMC VMS Scorecard Submission',
+    '════════════════════════════════════════',
+    `Reviewer  : ${name}`,
+    `Role      : ${persona ? persona.label : 'Not selected'}`,
+    `Submitted : ${new Date().toLocaleString()}`,
+    '',
+    '── STACK-RANKED RESULTS ────────────────',
+    rankLines,
+    '',
+    '── GLOBAL LOCATIONS ────────────────────',
+    globalSummary,
+    '',
+    `── MUST-HAVE FEATURES (${allFeatures.filter(f=>weights[f.id]===3).length}) ───────────────`,
+    mustHaves || '  (none selected)',
+    '',
+    `── NOT NEEDED (${allFeatures.filter(f=>weights[f.id]===1).length}) ─────────────────────`,
+    notNeeded || '  (none)',
+    '',
+    `── MARKED N/A — NOT RELEVANT TO MY ROLE (${allFeatures.filter(f=>weights[f.id]===0).length}) ──`,
+    naItems || '  (none)',
+    '',
+    '── FULL FEATURE WEIGHTINGS ─────────────',
+    featureLines,
+    '',
+    notes ? `── NOTES ───────────────────────────────\n${notes}` : '',
+  ].join('\n');
+
+  const subject = encodeURIComponent(`VMS Scorecard — ${name}${persona?' ('+persona.label+')':''}`);
+  window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+  document.getElementById('submit-card').style.display = 'none';
+  document.getElementById('submit-success').style.display = 'block';
+}
+
+function resetSubmit() {
+  document.getElementById('submit-card').style.display = 'block';
+  document.getElementById('submit-success').style.display = 'none';
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+renderPersonaButtons();
+renderFeaturesCol();
+renderResults();
+</script>
+</body>
+</html>
