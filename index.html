@@ -16,33 +16,38 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 input[type=text],textarea{font-family:inherit;background:#0f172a;color:#f1f5f9;border:1px solid #334155;border-radius:6px;padding:9px 12px;font-size:14px;outline:none;width:100%}
 input[type=text]:focus,textarea:focus{border-color:#3b82f6}
 textarea{resize:vertical;min-height:90px;line-height:1.5}
-select{font-family:inherit;background:#1e293b;color:#f1f5f9;border:1px solid #334155;border-radius:6px;padding:8px 12px;font-size:13px;outline:none;cursor:pointer;width:100%}
-select:focus{border-color:#3b82f6}
 .layout{max-width:1240px;margin:0 auto;padding:24px}
 .grid{display:grid;grid-template-columns:1fr 400px;gap:24px;align-items:start}
 .sticky{position:sticky;top:24px}
 .card{background:#1e293b;border-radius:12px;border:1px solid #334155;padding:20px;margin-bottom:16px}
-.badge{text-align:center;border-radius:8px;padding:8px 16px}
 .bar-wrap{flex:1;height:6px;background:#0f172a;border-radius:3px;overflow:hidden}
 .bar-inner{height:100%;border-radius:3px;transition:width 0.4s ease}
 .cat-bar-wrap{flex:1;height:4px;background:#0f172a;border-radius:2px;overflow:hidden}
 .cat-bar-inner{height:100%;border-radius:2px;transition:width 0.4s ease}
-.feature-row{display:flex;align-items:flex-start;justify-content:space-between;padding:7px 10px;margin-bottom:3px;border-radius:6px;gap:12px;border-left:3px solid #334155;transition:background 0.2s,border-color 0.2s}
-.slider-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;min-width:180px}
+.feature-row{display:flex;align-items:flex-start;justify-content:space-between;padding:8px 10px;margin-bottom:4px;border-radius:6px;gap:12px;border-left:3px solid #334155;transition:background 0.2s,border-color 0.2s}
+.slider-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;min-width:160px}
 .slider-label{font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-align:right}
 .rank-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #334155}
 .rank-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
 .rank-num{width:28px;height:28px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
-.submit-btn{width:100%;padding:11px 0;border-radius:8px;background:linear-gradient(135deg,#1d4ed8,#2563eb);border:none;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.02em;box-shadow:0 4px 14px rgba(37,99,235,0.25);transition:opacity 0.2s}
+.submit-btn{width:100%;padding:11px 0;border-radius:8px;background:linear-gradient(135deg,#1d4ed8,#2563eb);border:none;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(37,99,235,0.25);transition:opacity 0.2s}
 .submit-btn:hover{opacity:0.9}
 .persona-btn{padding:7px 14px;border-radius:8px;border:1px solid #334155;background:transparent;color:#64748b;font-size:12px;font-weight:600;transition:all 0.15s}
-.persona-btn.active{border-color:#3b82f6;background:#3b82f620;color:#3b82f6}
+.persona-btn.active{border-color:#3b82f6;background:rgba(59,130,246,0.12);color:#3b82f6}
 .persona-btn:hover:not(.active){border-color:#475569;color:#94a3b8}
-.tooltip{position:relative;display:inline-block;cursor:help;color:#64748b;font-size:11px;margin-left:4px}
-.na-badge{display:inline-block;padding:2px 7px;border-radius:4px;background:#334155;color:#64748b;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
-.section-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;margin-top:16px}
-.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.sticky{position:static}}
+.clear-btn{padding:7px 14px;border-radius:8px;border:1px solid #334155;background:transparent;color:#475569;font-size:12px;font-weight:600;transition:all 0.15s;margin-left:8px}
+.clear-btn:hover{border-color:#dc2626;color:#dc2626}
+.gbtn{padding:5px 11px;border-radius:6px;border:1px solid #334155;background:transparent;color:#64748b;font-size:11px;font-weight:600;transition:all 0.15s;white-space:nowrap}
+.gbtn.active{border-color:#3b82f6;background:rgba(59,130,246,0.12);color:#3b82f6}
+.gbtn:hover:not(.active){border-color:#475569;color:#94a3b8}
+/* Tooltip */
+.tip-wrap{position:relative;display:inline-flex;align-items:center;cursor:help}
+.tip-icon{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#1e3a5f;color:#60a5fa;font-size:9px;font-weight:800;margin-left:5px;flex-shrink:0;border:1px solid #2563eb40}
+.tip-box{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:10px 13px;font-size:12px;line-height:1.6;color:#94a3b8;width:280px;box-shadow:0 8px 24px rgba(0,0,0,0.5);pointer-events:none}
+.tip-wrap:hover .tip-box{display:block}
+.feature-label-wrap{flex:1;min-width:0}
+.feature-label-text{font-size:13px;line-height:1.4;display:flex;align-items:flex-start;flex-wrap:wrap;gap:2px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.sticky{position:static}.tip-box{width:220px}}
 </style>
 </head>
 <body>
@@ -51,25 +56,42 @@ select:focus{border-color:#3b82f6}
   <!-- HEADER -->
   <div style="border-bottom:1px solid #334155;padding-bottom:20px;margin-bottom:24px">
     <div style="margin-bottom:4px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.15em;text-transform:uppercase">ITAR / CMMC Level 2 — Tolomatic, Inc.</div>
-    <h1>Visitor Management System Scorecard</h1>
-    <p style="margin-top:6px;font-size:13px;color:#64748b;max-width:700px">Rate each feature by its importance to <em>your role</em>. Start by selecting your persona below — it pre-loads sensible defaults you can adjust. When done, add your name and any notes, then click Submit.</p>
+    <h1>Visitor Management System (VMS) Scorecard</h1>
+    <p style="margin-top:6px;font-size:13px;color:#64748b;max-width:700px">Rate each feature by its importance to <em>your role</em>. Start by selecting your role below — it pre-loads sensible defaults you can adjust. When done, add your name and any notes, then click Submit.</p>
 
-    <!-- NA EXPLAINER BOX -->
-    <div style="margin-top:16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:8px;padding:12px 16px;max-width:860px">
-      <div style="font-size:11px;font-weight:800;color:#818cf8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Understanding the rating scale</div>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;line-height:1.6;color:#94a3b8">
-        <span><strong style="color:#475569">N/A</strong> — This feature is not relevant to my role or Tolomatic's needs. <em>Excluded from scoring entirely.</em></span>
-        <span><strong style="color:#94a3b8">1 · Not Needed</strong> — I understand it, but we don't need it. <em>Counts against vendors that lack it slightly.</em></span>
-        <span><strong style="color:#3b82f6">2 · Nice to Have</strong> — Useful but not critical.</span>
-        <span><strong style="color:#dc2626">3 · Must Have</strong> — A requirement. Vendors without this are disqualified in my view.</span>
+    <!-- SCALE EXPLAINER -->
+    <div style="margin-top:16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:8px;padding:12px 16px;max-width:900px">
+      <div style="font-size:11px;font-weight:800;color:#818cf8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Understanding the rating scale — read before you start</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;font-size:12px;line-height:1.6;color:#94a3b8">
+        <div style="background:rgba(255,255,255,0.03);border-radius:6px;padding:8px 10px;border-left:3px solid #334155">
+          <strong style="color:#475569;font-size:13px">N/A</strong><br>
+          This feature doesn't apply to my role or our situation at all. <em style="color:#64748b">It is completely excluded from the score — as if it doesn't exist.</em>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:6px;padding:8px 10px;border-left:3px solid #64748b">
+          <strong style="color:#94a3b8;font-size:13px">1 · Not Needed</strong><br>
+          I understand what this is, but Tolomatic doesn't need it. <em style="color:#64748b">Slightly weighs against vendors that are missing it.</em>
+        </div>
+        <div style="background:rgba(59,130,246,0.06);border-radius:6px;padding:8px 10px;border-left:3px solid #3b82f6">
+          <strong style="color:#3b82f6;font-size:13px">2 · Nice to Have</strong><br>
+          Would be useful and appreciated, but we could live without it.
+        </div>
+        <div style="background:rgba(220,38,38,0.06);border-radius:6px;padding:8px 10px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:13px">3 · Must Have</strong><br>
+          This is a firm requirement. A vendor missing this should not be selected in my view.
+        </div>
       </div>
     </div>
   </div>
 
   <!-- PERSONA SELECTOR -->
   <div class="card" style="margin-bottom:24px">
-    <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px">Step 1 — Select your role to pre-load defaults (you can adjust any slider after)</div>
-    <div id="persona-btns" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+    <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px">Step 1 — Select your role</div>
+    <div style="font-size:12px;color:#475569;margin-bottom:12px">This pre-loads sensible starting defaults for your role. You can adjust any slider afterwards — these are just suggestions, not locked-in answers.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <div id="persona-btns" style="display:contents"></div>
+      <button class="clear-btn" id="clear-persona-btn" onclick="clearPersona()" style="display:none">✕ Clear selection</button>
+    </div>
+    <div id="persona-active-label" style="display:none;margin-top:10px;font-size:12px;color:#3b82f6;font-style:italic"></div>
   </div>
 
   <div class="grid">
@@ -88,35 +110,23 @@ select:focus{border-color:#3b82f6}
       <!-- WINNER -->
       <div id="winner-box" class="card" style="margin-bottom:16px"></div>
 
-      <!-- PRICING -->
-      <div class="card" style="margin-bottom:16px">
-        <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px">Estimated Monthly Cost <span style="font-weight:400;text-transform:none;letter-spacing:0">(1 site · &lt;50 visitors/mo · 3 admins)</span></div>
-        <div id="pricing-list"></div>
-        <div style="margin-top:10px;font-size:10px;color:#475569;line-height:1.6">† Published pricing. ‡ Estimated from review sites &amp; community data — request a quote to confirm. Verkada requires hardware purchase (cameras/access control) to unlock full Guest module value; software cost shown separately.</div>
-      </div>
-
       <!-- SUBMIT -->
       <div class="card" id="submit-card">
         <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px">Step 2 — Submit your results</div>
-
         <div style="margin-bottom:12px">
           <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:6px">Your Name <span style="color:#dc2626">*</span></label>
           <input type="text" id="reviewer-name" placeholder="First Last"/>
           <div id="name-error" style="display:none;font-size:11px;color:#dc2626;margin-top:4px">Please enter your name before submitting.</div>
         </div>
-
         <div style="margin-bottom:16px">
           <label style="font-size:12px;color:#94a3b8;display:block;margin-bottom:6px">Additional Notes <span style="font-size:11px;font-weight:400">(optional — anything else Todd should know)</span></label>
           <textarea id="reviewer-notes" placeholder="e.g. We frequently have last-minute walk-in contractors. The front desk is unmanned after 4pm..."></textarea>
         </div>
-
-        <div style="font-size:12px;color:#475569;margin-bottom:14px;line-height:1.6">
-          Clicking Submit opens your email client with your full scorecard pre-filled, addressed to Todd Norman at Tolomatic. Just hit <strong style="color:#94a3b8">Send</strong>.
-        </div>
+        <div style="font-size:12px;color:#475569;margin-bottom:14px;line-height:1.6">Clicking Submit opens your email client with your full scorecard pre-filled, addressed to Todd Norman at Tolomatic. Just hit <strong style="color:#94a3b8">Send</strong>.</div>
         <button class="submit-btn" onclick="handleSubmit()">Submit My Scorecard →</button>
       </div>
 
-      <div id="submit-success" style="display:none" class="card" style="text-align:center">
+      <div id="submit-success" style="display:none" class="card">
         <div style="text-align:center">
           <div style="font-size:36px;margin-bottom:10px">✅</div>
           <div style="font-weight:700;color:#22c55e;font-size:15px;margin-bottom:8px">Email Client Opened!</div>
@@ -131,144 +141,198 @@ select:focus{border-color:#3b82f6}
 </div>
 
 <script>
-// ─────────────────────────────────────────────
-// DATA
-// ─────────────────────────────────────────────
 const RECIPIENT = "todd_norman@tolomatic.com";
 
+// ── GLOBAL LOCATION WEIGHT VALUES ──
+// 0=N/A/no opinion, 1=Not Needed, 2=Nice to Have, 3=Required
+const G_LABELS = { 0:"No Opinion", 1:"Not Needed", 2:"Nice to Have", 3:"Required" };
+const G_COLORS = { 0:"#475569", 1:"#64748b", 2:"#3b82f6", 3:"#dc2626" };
+
+// ── VENDORS ──
 const VENDORS = [
-  { id:"ocr",      name:"OCR Inc.",           short:"OCR",         color:"#7c3aed", price:"~$150‡",  priceNote:"Est. based on SMB tier" },
-  { id:"facility", name:"FacilityOS",          short:"FacilityOS",  color:"#059669", price:"~$300‡",  priceNote:"Est. compliance tier" },
-  { id:"signin",   name:"Sign In Solutions",   short:"Sign In",     color:"#0891b2", price:"~$199†",  priceNote:"Published Standard plan" },
-  { id:"recep",    name:"The Receptionist",    short:"Receptionist",color:"#d97706", price:"~$149†",  priceNote:"Published Core plan" },
-  { id:"lobby",    name:"LobbyGuard",          short:"LobbyGuard",  color:"#db2777", price:"~$99‡",   priceNote:"Est. base plan" },
-  { id:"verkada",  name:"Verkada Guest",       short:"Verkada",     color:"#0ea5e9", price:"~$400‡",  priceNote:"Est. software only; hardware extra" },
+  { id:"ocr",      name:"OCR Inc.",           short:"OCR",          color:"#7c3aed" },
+  { id:"facility", name:"FacilityOS",          short:"FacilityOS",   color:"#059669" },
+  { id:"signin",   name:"Sign In Solutions",   short:"Sign In",      color:"#0891b2" },
+  { id:"recep",    name:"The Receptionist",    short:"Receptionist", color:"#d97706" },
+  { id:"lobby",    name:"LobbyGuard",          short:"LobbyGuard",   color:"#db2777" },
+  { id:"verkada",  name:"Verkada Guest",       short:"Verkada",      color:"#0ea5e9" },
 ];
 
-// Scores: 0=No, 1=Partial/Unverified, 2=Full/Confirmed
+// ── FEATURE CATEGORIES ──
+// desc: plain-language description shown in the tooltip
 const CATEGORIES = [
   { id:"itar", label:"ITAR / Compliance", features:[
-    { id:"itar_workflows",     label:"ITAR-specific visitor workflows",                scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
-    { id:"cmmc_docs",          label:"CMMC Level 2 alignment documentation",           scores:{ocr:0,facility:2,signin:1,recep:1,lobby:0,verkada:0} },
-    { id:"nationality_verify", label:"US citizenship / nationality verification",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"export_control_q",   label:"Export control questionnaire (customizable)",   scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
-    { id:"nda_esign",          label:"NDA / legal doc e-signature at check-in",       scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"zone_restrict",      label:"Visitor access level / area restrictions",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"watchlist",          label:"Watchlist / denied party screening (built-in)", scores:{ocr:1,facility:2,signin:0,recep:0,lobby:2,verkada:1} },
-    { id:"audit_trail",        label:"Tamper-evident audit trail & logs",             scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"compliance_report",  label:"Automated compliance reporting",                scores:{ocr:2,facility:2,signin:1,recep:1,lobby:1,verkada:0} },
-    { id:"itar_audit_support",  label:"ITAR audit support / legal defensibility docs",scores:{ocr:2,facility:2,signin:1,recep:1,lobby:0,verkada:0} },
-    { id:"data_retention",     label:"Visitor data retention policy controls",        scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
+    { id:"itar_workflows",     label:"ITAR-specific visitor workflows",
+      desc:"ITAR (International Traffic in Arms Regulations) controls who can see or access defense-related products, data, or technology. This feature means the system has purpose-built check-in steps designed specifically to meet those rules — not just a generic sign-in form." },
+    { id:"cmmc_docs",          label:"CMMC Level 2 alignment documentation",
+      desc:"CMMC (Cybersecurity Maturity Model Certification) is a US Department of Defense requirement for companies that handle certain sensitive government information. Level 2 means meeting 110 specific security practices. This asks whether the vendor provides written documentation showing their system supports those practices." },
+    { id:"nationality_verify", label:"US citizenship / nationality verification",
+      desc:"ITAR rules require knowing whether a visitor is a US citizen or a foreign national, because foreign nationals may not be permitted access to certain areas or information. This feature captures and records that information at check-in." },
+    { id:"export_control_q",   label:"Export control questionnaire (customizable)",
+      desc:"A set of questions shown to visitors at check-in that helps determine whether they are permitted to access controlled areas or information under US export laws. 'Customizable' means Tolomatic can edit the questions to match its specific compliance needs." },
+    { id:"nda_esign",          label:"NDA / legal doc e-signature at check-in",
+      desc:"The ability for visitors to read and digitally sign a Non-Disclosure Agreement (or other legal document) on the kiosk before they are allowed entry. This creates a legally timestamped record without needing paper forms." },
+    { id:"zone_restrict",      label:"Visitor access level / area restrictions",
+      desc:"The system can assign different visitors different levels of access — for example, a vendor might be cleared for the lobby and conference rooms but not the production floor. Restrictions can be set per visitor or visitor type." },
+    { id:"watchlist",          label:"Watchlist / denied party screening (built-in)",
+      desc:"Automatically checks incoming visitor information against lists of people or organizations that are prohibited from entry or flagged for review — for example, export-controlled denied parties or internal banned individuals. 'Built-in' means this happens within the VMS without needing a separate tool." },
+    { id:"audit_trail",        label:"Tamper-evident audit trail & logs",
+      desc:"A complete, unchangeable record of every visitor check-in and check-out, including who approved entry, what documents were signed, and when. 'Tamper-evident' means the record cannot be quietly edited — important for government audits." },
+    { id:"compliance_report",  label:"Automated compliance reporting",
+      desc:"The system can generate ready-to-use reports showing visitor history, signed documents, and access records — formatted for compliance reviews or government audits — without requiring manual data exports." },
+    { id:"itar_audit_support",  label:"ITAR audit support / legal defensibility docs",
+      desc:"If Tolomatic is ever audited by a government agency for ITAR compliance, this feature provides supporting documentation from the VMS vendor — evidence that the system's processes meet regulatory standards." },
+    { id:"data_retention",     label:"Visitor data retention policy controls",
+      desc:"The ability to set rules for how long visitor records are kept and when they are automatically deleted. This is important both for compliance (some regulations require keeping records for a set period) and privacy (others require deleting them after a certain time)." },
   ]},
   { id:"security", label:"Data Security & Sovereignty", features:[
-    { id:"cloud_saas",  label:"Cloud-hosted SaaS (no on-prem server required)",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"us_data",     label:"Confirmed US-only data center residency",          scores:{ocr:2,facility:2,signin:1,recep:2,lobby:1,verkada:1} },
-    { id:"soc2",        label:"SOC 2 Type II certified",                          scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
-    { id:"encryption",  label:"Data encryption at rest & in transit",             scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"rbac",        label:"Role-based admin access controls (RBAC)",          scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"sso",         label:"SSO / Active Directory (Entra ID) integration",    scores:{ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
-    { id:"mfa",         label:"MFA for admin portal",                             scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
-    { id:"gdpr_tools",  label:"GDPR compliance tools (required for DE location)", scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+    { id:"cloud_saas",  label:"Cloud-hosted SaaS (no on-prem server required)",
+      desc:"The system runs entirely in the vendor's secure cloud — Tolomatic does not need to purchase, host, or maintain any servers on-site. All that's needed is power and internet access at the kiosk." },
+    { id:"us_data",     label:"Confirmed US-only data center residency",
+      desc:"All visitor data — including ID scans, photos, and signed documents — is stored in data centers physically located in the United States. This matters for ITAR because storing sensitive data on servers outside the US can create export control complications." },
+    { id:"soc2",        label:"SOC 2 Type II certified",
+      desc:"SOC 2 Type II is an independent third-party security audit that verifies a vendor's systems protect customer data correctly over an extended period (typically 6–12 months). It is one of the most widely recognized security certifications for cloud software." },
+    { id:"encryption",  label:"Data encryption at rest & in transit",
+      desc:"Visitor data is scrambled (encrypted) both when stored on the vendor's servers ('at rest') and when being transmitted over the internet ('in transit'). This means even if data were intercepted, it would be unreadable without the correct key." },
+    { id:"rbac",        label:"Role-based admin access controls (RBAC)",
+      desc:"Different Tolomatic staff are given only the access they need. For example, a receptionist might be able to check visitors in, but only an IT admin or compliance officer can see full visitor history or change system settings." },
+    { id:"sso",         label:"SSO / Active Directory (Entra ID) integration",
+      desc:"Single Sign-On (SSO) allows Tolomatic employees to log into the VMS admin portal using their existing Tolomatic network credentials — the same username and password used for email and other company systems. This eliminates separate passwords and makes it easier to manage who has access." },
+    { id:"mfa",         label:"MFA for admin portal",
+      desc:"Multi-Factor Authentication (MFA) requires administrators to verify their identity in two ways — typically a password plus a code sent to their phone — before accessing the system's admin controls. This prevents unauthorized access even if a password is stolen." },
+    { id:"gdpr_tools",  label:"GDPR compliance tools (required for DE location)",
+      desc:"GDPR (General Data Protection Regulation) is a European Union law that gives individuals strong rights over their personal data. If Tolomatic's Germany facility uses this system, the vendor must provide tools to handle visitor data deletion requests, consent records, and privacy disclosures in compliance with EU law." },
   ]},
   { id:"checkin", label:"Check-In Experience & Hardware", features:[
-    { id:"kiosk",           label:"Self-service iPad / tablet kiosk",              scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"id_scan",         label:"Government-issued ID scan & image capture",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"passport",        label:"Passport scan support",                         scores:{ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2} },
-    { id:"photo",           label:"Photo capture at check-in",                     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"preregister",     label:"Pre-registration / pre-screening by host",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"badge_print",     label:"Visitor badge printing",                        scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"qr",              label:"QR code / PIN-based check-in",                  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"walkin",          label:"Walk-in (unscheduled) visitor handling",        scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"contractor",      label:"Contractor / recurring visitor management",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"multilingual",    label:"Multi-language kiosk support",                  scores:{ocr:1,facility:2,signin:2,recep:1,lobby:1,verkada:2} },
-    { id:"branded_kiosk",   label:"Branded / professional kiosk appearance",       scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"kiosk",           label:"Self-service iPad / tablet kiosk",
+      desc:"Visitors check themselves in on a touchscreen tablet mounted near the entrance, without needing a staff member to assist them. The system walks them through each step on-screen." },
+    { id:"id_scan",         label:"Government-issued ID scan & image capture",
+      desc:"The kiosk can scan a driver's license, state ID, or similar government-issued document to capture the visitor's name, photo, and other information automatically — reducing manual entry errors and creating a verified identity record." },
+    { id:"passport",        label:"Passport scan support",
+      desc:"In addition to domestic IDs, the system can read and record information from passports. This is especially important for ITAR compliance when verifying foreign national visitors." },
+    { id:"photo",           label:"Photo capture at check-in",
+      desc:"The kiosk takes a photo of each visitor at the time of check-in and attaches it to their visit record. This supports identity verification and provides a visual record for security purposes." },
+    { id:"preregister",     label:"Pre-registration / pre-screening by host",
+      desc:"A Tolomatic employee (the 'host') can register an expected visitor in advance, entering their details ahead of time. This speeds up check-in on arrival and can trigger pre-screening steps such as export control checks before the visitor even arrives." },
+    { id:"badge_print",     label:"Visitor badge printing",
+      desc:"The system automatically prints a physical visitor badge upon check-in showing the visitor's name, photo, host, date, and access level. Badges help staff quickly identify whether someone in the building is authorized and where they are permitted to go." },
+    { id:"qr",              label:"QR code / PIN-based check-in",
+      desc:"Pre-registered visitors can check in quickly by scanning a QR code sent to them in advance, or by entering a PIN, instead of re-entering all their information manually on arrival." },
+    { id:"walkin",          label:"Walk-in (unscheduled) visitor handling",
+      desc:"The system gracefully handles visitors who arrive without a pre-scheduled appointment — guiding them through the full check-in process, notifying the appropriate host, and completing all required compliance steps even without advance notice." },
+    { id:"contractor",      label:"Contractor / recurring visitor management",
+      desc:"Vendors, contractors, or other visitors who come regularly can be set up with a recurring profile so they don't need to re-enter their information from scratch on every visit. Their compliance documents (like signed NDAs) can be tracked across visits." },
+    { id:"multilingual",    label:"Multi-language kiosk support",
+      desc:"The visitor-facing kiosk screen can display in languages other than English. Relevant if Tolomatic expects visitors who are not comfortable in English, or for use at international locations." },
+    { id:"branded_kiosk",   label:"Branded / professional kiosk appearance",
+      desc:"The kiosk interface can be customized with Tolomatic's logo, colors, and messaging so it looks professional and on-brand rather than like a generic off-the-shelf system. Relevant for executive visitors and customer-facing lobbies." },
   ]},
   { id:"receptionless", label:"Receptionless / Autonomous Operation", features:[
-    { id:"fully_selfservice",  label:"Fully self-service: visitor completes entire check-in without staff",         scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"host_auto_notify",   label:"Automatic host notification when visitor arrives (no staff trigger needed)",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"no_show_escalation", label:"Escalation workflow if host doesn't respond (notify backup contact)",         scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
-    { id:"after_hours",        label:"Handles after-hours / unstaffed lobby gracefully",                            scores:{ocr:1,facility:2,signin:1,recep:2,lobby:1,verkada:2} },
-    { id:"intercom",           label:"Intercom / two-way communication at kiosk",                                   scores:{ocr:0,facility:1,signin:0,recep:0,lobby:0,verkada:2} },
-    { id:"mobile_host_app",    label:"Mobile app for hosts to approve, notify, or deny visitors",                   scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"delivery_handling",  label:"Delivery / non-visitor check-in support",                                     scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"offline_mode",       label:"Offline / degraded-mode check-in if internet drops",                          scores:{ocr:0,facility:0,signin:0,recep:2,lobby:0,verkada:0} },
+    { id:"fully_selfservice",  label:"Fully self-service check-in without staff assistance",
+      desc:"A visitor can arrive at an unstaffed entrance, complete the entire check-in process including identity verification, document signing, and badge printing, entirely on their own without any Tolomatic employee needing to be present at the desk." },
+    { id:"host_auto_notify",   label:"Automatic host notification when visitor arrives",
+      desc:"The moment a visitor completes check-in, the system automatically sends a notification to their Tolomatic host via email, text, or Teams — without anyone at the front desk needing to make a call or send a message." },
+    { id:"no_show_escalation", label:"Escalation if host doesn't respond",
+      desc:"If a visitor checks in and their host doesn't acknowledge or respond within a set time, the system automatically contacts a backup person (such as a manager or department coordinator) so the visitor is not left waiting indefinitely." },
+    { id:"after_hours",        label:"Handles after-hours / unstaffed lobby gracefully",
+      desc:"When no staff are present — early morning, evenings, or during breaks — the system continues to operate correctly on its own, handling check-ins, notifying hosts, and enforcing access rules without requiring someone to be physically at the desk." },
+    { id:"intercom",           label:"Intercom / two-way communication at kiosk",
+      desc:"The kiosk includes a built-in speaker and microphone (or camera) allowing a visitor to speak directly with a Tolomatic employee remotely if they need help, can't find their host, or encounter a problem during check-in." },
+    { id:"mobile_host_app",    label:"Mobile app for hosts to manage visitors",
+      desc:"Tolomatic employees can use a smartphone app to receive visitor arrival notifications, approve or deny entry, see who is in the building, and communicate with visitors — without needing to be at their desk or logged into a computer." },
+    { id:"delivery_handling",  label:"Delivery / non-visitor check-in support",
+      desc:"The system can handle couriers, package deliveries, and other non-visitor arrivals with a simplified check-in flow — logging who arrived, what was delivered, and notifying the right person — separately from the full visitor compliance process." },
+    { id:"offline_mode",       label:"Offline / degraded-mode check-in if internet drops",
+      desc:"If the building's internet connection goes down, the kiosk can still process check-ins locally, storing the records and syncing them once connectivity is restored. Without this, a network outage means the entrance is completely non-functional." },
   ]},
   { id:"notifications", label:"Notifications & Safety", features:[
-    { id:"host_notify",   label:"Instant host notification (email / SMS / Teams)",   scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"denied_alert",  label:"Denied / flagged visitor instant alert to security", scores:{ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2} },
-    { id:"evac",          label:"Emergency evacuation mustering / headcount",         scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+    { id:"host_notify",   label:"Instant host notification (email / SMS / Teams)",
+      desc:"When a visitor checks in, their host at Tolomatic is immediately notified through whichever channel they prefer — email, text message, or a Microsoft Teams message — so they can come greet the visitor promptly." },
+    { id:"denied_alert",  label:"Denied / flagged visitor alert to security",
+      desc:"If a visitor fails the export control screening, appears on a watchlist, or is otherwise flagged during check-in, the system immediately sends an alert to the security or compliance team — not just a note in a log, but an active real-time notification." },
+    { id:"evac",          label:"Emergency evacuation mustering / headcount",
+      desc:"In the event of a fire drill, emergency evacuation, or other safety incident, the system can instantly produce a list of everyone currently checked into the building — including visitors — so staff can verify all persons have evacuated safely." },
   ]},
   { id:"integrations", label:"Integrations & Ecosystem", features:[
-    { id:"teams_slack",   label:"MS Teams / Slack integration",                   scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
-    { id:"calendar",      label:"Calendar integration (Outlook / Google)",        scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
-    { id:"access_ctrl",   label:"Physical access control system integration",     scores:{ocr:0,facility:2,signin:0,recep:2,lobby:0,verkada:2} },
-    { id:"camera_int",    label:"Camera / video system integration",              scores:{ocr:1,facility:1,signin:0,recep:0,lobby:0,verkada:2} },
-    { id:"api",           label:"API / webhook for custom integrations",          scores:{ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1} },
+    { id:"teams_slack",   label:"MS Teams / Slack integration",
+      desc:"The VMS can send visitor notifications and alerts directly into Microsoft Teams (or Slack), so hosts receive them in the same tool they already use for daily communication — without needing to check a separate app or email." },
+    { id:"calendar",      label:"Calendar integration (Outlook / Google)",
+      desc:"When a meeting is scheduled in Outlook or Google Calendar, the VMS can automatically create a visitor pre-registration based on the meeting invite — so the host doesn't have to separately register their visitor in a different system." },
+    { id:"access_ctrl",   label:"Physical access control system integration",
+      desc:"The VMS can connect to Tolomatic's door access control system (badge readers, electronic locks) so that visitor check-in can automatically grant or restrict physical access to specific doors or areas without manual intervention." },
+    { id:"camera_int",    label:"Camera / video system integration",
+      desc:"The VMS can connect with security cameras or video systems — for example, Verkada — to link visitor check-in records with camera footage, or to use video intercoms at the entrance as part of the check-in process." },
+    { id:"api",           label:"API / webhook for custom integrations",
+      desc:"The system provides a technical interface (API) that Tolomatic's IT team or a developer could use to connect the VMS with other internal systems — such as HR software, security platforms, or a custom dashboard — without being limited to built-in integrations." },
   ]},
   { id:"scalability", label:"Scalability & Multi-Site", features:[
-    { id:"multi_door",     label:"Multi-door / multi-entry support at single site",     scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"multi_site",     label:"Easy expansion to additional buildings / sites",      scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2} },
-    { id:"global_cn",      label:"Global location support — China (CN) facility",       scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2}, isGlobal:true, region:"CN" },
-    { id:"global_mx",      label:"Global location support — Mexico (MX) facility",      scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2}, isGlobal:true, region:"MX" },
-    { id:"global_de",      label:"Global location support — Germany (DE) facility",     scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2}, isGlobal:true, region:"DE" },
-    { id:"gdpr_de",        label:"GDPR-compliant data handling for DE location",         scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1}, isGlobal:true, region:"DE" },
-    { id:"centralized_mgmt",label:"Centralized admin management across all locations",  scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
+    { id:"multi_door",     label:"Multi-door / multi-entry support at single site",
+      desc:"Tolomatic's facility has more than one entrance. This feature allows multiple kiosks at different doors to all operate under the same system — sharing visitor records, settings, and reporting — rather than running as separate disconnected installations." },
+    { id:"multi_site",     label:"Easy expansion to additional buildings or sites",
+      desc:"If Tolomatic adds a new building or facility in the future, adding it to the VMS should be straightforward — ideally just setting up a new kiosk and connecting it to the existing account — without requiring a full new implementation." },
+    { id:"global_cn",      label:"Global location support — China (CN) facility",
+      desc:"The system can be deployed at Tolomatic's China location, operating correctly with local network conditions, appropriate language support, and data handling practices for that region." },
+    { id:"global_mx",      label:"Global location support — Mexico (MX) facility",
+      desc:"The system can be deployed at Tolomatic's Mexico location and managed alongside the US site from a single admin interface." },
+    { id:"global_de",      label:"Global location support — Germany (DE) facility",
+      desc:"The system can be deployed at Tolomatic's Germany location. Note: Germany's GDPR privacy regulations impose specific requirements on how visitor personal data must be handled, stored, and deleted — see the GDPR feature below." },
+    { id:"gdpr_de",        label:"GDPR-compliant data handling for DE location",
+      desc:"GDPR is a strict European privacy law. For the Germany site, the VMS must handle visitor consent, data access requests, and automatic data deletion in ways that comply with EU law. Non-compliance can result in significant fines." },
+    { id:"centralized_mgmt",label:"Centralized management across all locations",
+      desc:"All sites — US, China, Mexico, Germany — can be managed, reported on, and configured from a single admin dashboard rather than logging into separate systems for each location." },
   ]},
-  { id:"ux", label:"Visitor Experience & Ease of Use", features:[
-    { id:"ease_of_use",      label:"Minimal staff training required to administer",      scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"visitor_exp",      label:"Professional, polished visitor-facing experience",   scores:{ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"setup_speed",      label:"Fast implementation (days not months)",              scores:{ocr:1,facility:1,signin:2,recep:2,lobby:2,verkada:1} },
-    { id:"support_quality",  label:"Responsive US-based customer support",               scores:{ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1} },
-  ]},
-  { id:"cost", label:"Cost & Vendor Health", features:[
-    { id:"transparent_price", label:"Transparent / published pricing (no surprise quotes)", scores:{ocr:0,facility:0,signin:2,recep:2,lobby:1,verkada:0} },
-    { id:"no_contract",       label:"Month-to-month / no long-term contract required",      scores:{ocr:0,facility:1,signin:2,recep:2,lobby:1,verkada:0} },
-    { id:"tco",               label:"Low total cost of ownership for our scale",             scores:{ocr:1,facility:1,signin:2,recep:2,lobby:2,verkada:0} },
-    { id:"vendor_stability",  label:"Vendor financial stability / market longevity",         scores:{ocr:2,facility:1,signin:2,recep:2,lobby:1,verkada:2} },
-    { id:"onboarding",        label:"Dedicated onboarding & implementation support",         scores:{ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:1} },
-    { id:"sla",               label:"SLA-backed uptime guarantee",                           scores:{ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2} },
+  { id:"ux", label:"Visitor Experience & Vendor Quality", features:[
+    { id:"ease_of_use",      label:"Minimal staff training required to administer",
+      desc:"The admin portal and day-to-day operation of the system is intuitive enough that Tolomatic staff — receptionists, HR, or facility coordinators — can use it effectively without extensive IT training or ongoing technical support." },
+    { id:"visitor_exp",      label:"Professional, polished visitor-facing experience",
+      desc:"The kiosk looks and behaves in a way that reflects well on Tolomatic — clean design, clear instructions, smooth flow. Important for executive visitors, customers, and any situation where the lobby creates a first impression." },
+    { id:"setup_speed",      label:"Fast implementation (days not months)",
+      desc:"How quickly the system can be fully set up and operational from the time of purchase. Some enterprise systems take months to deploy; simpler cloud platforms can be live within days or a week." },
+    { id:"support_quality",  label:"Responsive US-based customer support",
+      desc:"When something goes wrong or a question arises, support is available from people in the United States during US business hours — not just email tickets that go to overseas support centers with long response times." },
+    { id:"vendor_stability", label:"Vendor financial stability / market longevity",
+      desc:"There is reasonable confidence that the vendor will still be in business in 3–5 years. Choosing a small startup or a vendor showing signs of financial difficulty carries the risk that the product gets discontinued, leaving Tolomatic needing to start over." },
+    { id:"onboarding",       label:"Dedicated onboarding & implementation support",
+      desc:"The vendor provides hands-on help during setup — walking Tolomatic through configuration, customizing workflows, and training staff — rather than just handing over login credentials and pointing to documentation." },
+    { id:"sla",              label:"SLA-backed uptime guarantee",
+      desc:"The vendor contractually guarantees that the system will be available (online and functioning) a certain percentage of the time — typically 99.9% or higher. If they fall below that, there are defined remedies. This matters because a VMS outage means visitors cannot check in." },
   ]},
 ];
 
-// ─────────────────────────────────────────────
-// PERSONA DEFAULT WEIGHTS
-// N/A=0, 1=Not Needed, 2=Nice to Have, 3=Must Have
-// ─────────────────────────────────────────────
+// ── PERSONAS ──
 const PERSONAS = [
-  { id:"ops",        label:"Ops Director",       icon:"⚙️",
-    defaults:{ itar_workflows:3,cmmc_docs:2,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:2, cloud_saas:3,us_data:2,soc2:2,encryption:2,rbac:2,sso:2,mfa:2,gdpr_tools:1, kiosk:3,id_scan:3,passport:2,photo:2,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:2,branded_kiosk:2, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:2,camera_int:1,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:2,setup_speed:2,support_quality:2, transparent_price:2,no_contract:1,tco:2,vendor_stability:2,onboarding:2,sla:2 } },
-  { id:"eng",        label:"Engineering Director",icon:"🔧",
-    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:2, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:3,passport:3,photo:2,preregister:3,badge_print:3,qr:2,walkin:2,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:2, host_notify:3,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:2,camera_int:1,api:3, multi_door:3,multi_site:2,global_cn:3,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:2,visitor_exp:1,setup_speed:2,support_quality:2, transparent_price:1,no_contract:1,tco:2,vendor_stability:2,onboarding:2,sla:2 } },
-  { id:"ceo",        label:"CEO",                 icon:"👔",
-    defaults:{ itar_workflows:2,cmmc_docs:2,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:2,itar_audit_support:2,data_retention:1, cloud_saas:2,us_data:2,soc2:2,encryption:1,rbac:1,sso:1,mfa:1,gdpr_tools:1, kiosk:2,id_scan:2,passport:1,photo:2,preregister:2,badge_print:2,qr:1,walkin:2,contractor:2,multilingual:2,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:1,offline_mode:1, host_notify:2,denied_alert:2,evac:2, teams_slack:3,calendar:3,access_ctrl:1,camera_int:1,api:1, multi_door:2,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:2, transparent_price:3,no_contract:3,tco:3,vendor_stability:3,onboarding:2,sla:2 } },
-  { id:"cfo",        label:"CFO",                 icon:"💰",
-    defaults:{ itar_workflows:2,cmmc_docs:2,nationality_verify:2,export_control_q:1,nda_esign:2,zone_restrict:1,watchlist:1,audit_trail:2,compliance_report:2,itar_audit_support:2,data_retention:1, cloud_saas:2,us_data:2,soc2:2,encryption:1,rbac:1,sso:1,mfa:1,gdpr_tools:1, kiosk:1,id_scan:1,passport:1,photo:1,preregister:1,badge_print:1,qr:1,walkin:1,contractor:1,multilingual:1,branded_kiosk:2, fully_selfservice:3,host_auto_notify:2,no_show_escalation:1,after_hours:1,intercom:0,mobile_host_app:2,delivery_handling:0,offline_mode:0, host_notify:1,denied_alert:2,evac:2, teams_slack:2,calendar:2,access_ctrl:0,camera_int:0,api:0, multi_door:2,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:2,setup_speed:3,support_quality:2, transparent_price:3,no_contract:3,tco:3,vendor_stability:3,onboarding:2,sla:2 } },
-  { id:"hr",         label:"HR",                  icon:"🤝",
-    defaults:{ itar_workflows:2,cmmc_docs:1,nationality_verify:2,export_control_q:2,nda_esign:3,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:1,itar_audit_support:1,data_retention:2, cloud_saas:2,us_data:2,soc2:1,encryption:1,rbac:2,sso:2,mfa:1,gdpr_tools:2, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:2,evac:3, teams_slack:3,calendar:3,access_ctrl:1,camera_int:0,api:1, multi_door:2,multi_site:2,global_cn:1,global_mx:1,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:3,visitor_exp:3,setup_speed:2,support_quality:3, transparent_price:2,no_contract:2,tco:2,vendor_stability:2,onboarding:3,sla:1 } },
-  { id:"recept",     label:"Receptionist",        icon:"🖥️",
-    defaults:{ itar_workflows:2,cmmc_docs:0,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:1,compliance_report:0,itar_audit_support:0,data_retention:0, cloud_saas:2,us_data:0,soc2:0,encryption:0,rbac:1,sso:2,mfa:0,gdpr_tools:0, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:3,mobile_host_app:3,delivery_handling:3,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:3,calendar:3,access_ctrl:0,camera_int:0,api:0, multi_door:3,multi_site:1,global_cn:0,global_mx:0,global_de:0,gdpr_de:0,centralized_mgmt:1, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:3, transparent_price:0,no_contract:0,tco:0,vendor_stability:0,onboarding:3,sla:2 } },
-  { id:"it",         label:"IT",                  icon:"💻",
-    defaults:{ itar_workflows:2,cmmc_docs:3,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:3, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:2,passport:2,photo:2,preregister:2,badge_print:2,qr:2,walkin:2,contractor:2,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:2,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:3, host_notify:2,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:3,camera_int:2,api:3, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:3,centralized_mgmt:3, ease_of_use:2,visitor_exp:1,setup_speed:3,support_quality:3, transparent_price:2,no_contract:2,tco:3,vendor_stability:2,onboarding:2,sla:3 } },
-  { id:"security",   label:"Security/Compliance", icon:"🛡️",
-    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:3, cloud_saas:2,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:3, kiosk:2,id_scan:3,passport:3,photo:3,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:3,camera_int:2,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:3,gdpr_de:3,centralized_mgmt:3, ease_of_use:1,visitor_exp:1,setup_speed:1,support_quality:2, transparent_price:1,no_contract:1,tco:1,vendor_stability:3,onboarding:2,sla:3 } },
+  { id:"ops",      label:"Operations",          icon:"⚙️",
+    defaults:{ itar_workflows:3,cmmc_docs:2,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:2, cloud_saas:3,us_data:2,soc2:2,encryption:2,rbac:2,sso:2,mfa:2,gdpr_tools:1, kiosk:3,id_scan:3,passport:2,photo:2,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:2,branded_kiosk:2, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:2,camera_int:1,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:2,setup_speed:2,support_quality:2,vendor_stability:2,onboarding:2,sla:2 } },
+  { id:"eng",      label:"Engineering",         icon:"🔧",
+    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:2, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:3,passport:3,photo:2,preregister:3,badge_print:3,qr:2,walkin:2,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:2, host_notify:3,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:2,camera_int:1,api:3, multi_door:3,multi_site:2,global_cn:3,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:2,visitor_exp:1,setup_speed:2,support_quality:2,vendor_stability:2,onboarding:2,sla:2 } },
+  { id:"exec",     label:"CxO / Executive",     icon:"👔",
+    defaults:{ itar_workflows:2,cmmc_docs:2,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:2,itar_audit_support:2,data_retention:1, cloud_saas:2,us_data:2,soc2:2,encryption:1,rbac:1,sso:1,mfa:1,gdpr_tools:1, kiosk:2,id_scan:2,passport:1,photo:2,preregister:2,badge_print:2,qr:1,walkin:2,contractor:2,multilingual:2,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:2,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:1,offline_mode:1, host_notify:2,denied_alert:2,evac:2, teams_slack:3,calendar:3,access_ctrl:1,camera_int:1,api:1, multi_door:2,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:2,centralized_mgmt:3, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:2,vendor_stability:3,onboarding:2,sla:2 } },
+  { id:"hr",       label:"HR",                  icon:"🤝",
+    defaults:{ itar_workflows:2,cmmc_docs:1,nationality_verify:2,export_control_q:2,nda_esign:3,zone_restrict:2,watchlist:2,audit_trail:2,compliance_report:1,itar_audit_support:1,data_retention:2, cloud_saas:2,us_data:2,soc2:1,encryption:1,rbac:2,sso:2,mfa:1,gdpr_tools:2, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:2,intercom:2,mobile_host_app:3,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:2,evac:3, teams_slack:3,calendar:3,access_ctrl:1,camera_int:0,api:1, multi_door:2,multi_site:2,global_cn:1,global_mx:1,global_de:2,gdpr_de:2,centralized_mgmt:2, ease_of_use:3,visitor_exp:3,setup_speed:2,support_quality:3,vendor_stability:2,onboarding:3,sla:1 } },
+  { id:"recept",   label:"Receptionist",        icon:"🖥️",
+    defaults:{ itar_workflows:2,cmmc_docs:0,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:1,compliance_report:0,itar_audit_support:0,data_retention:0, cloud_saas:2,us_data:0,soc2:0,encryption:0,rbac:1,sso:2,mfa:0,gdpr_tools:0, kiosk:3,id_scan:3,passport:2,photo:3,preregister:3,badge_print:3,qr:3,walkin:3,contractor:3,multilingual:3,branded_kiosk:3, fully_selfservice:3,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:3,mobile_host_app:3,delivery_handling:3,offline_mode:3, host_notify:3,denied_alert:3,evac:3, teams_slack:3,calendar:3,access_ctrl:0,camera_int:0,api:0, multi_door:3,multi_site:1,global_cn:0,global_mx:0,global_de:0,gdpr_de:0,centralized_mgmt:1, ease_of_use:3,visitor_exp:3,setup_speed:3,support_quality:3,vendor_stability:0,onboarding:3,sla:2 } },
+  { id:"it",       label:"IT",                  icon:"💻",
+    defaults:{ itar_workflows:2,cmmc_docs:3,nationality_verify:2,export_control_q:2,nda_esign:2,zone_restrict:2,watchlist:2,audit_trail:3,compliance_report:2,itar_audit_support:2,data_retention:3, cloud_saas:3,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:2, kiosk:2,id_scan:2,passport:2,photo:2,preregister:2,badge_print:2,qr:2,walkin:2,contractor:2,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:2,no_show_escalation:2,after_hours:2,intercom:1,mobile_host_app:2,delivery_handling:1,offline_mode:3, host_notify:2,denied_alert:3,evac:2, teams_slack:3,calendar:3,access_ctrl:3,camera_int:2,api:3, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:2,gdpr_de:3,centralized_mgmt:3, ease_of_use:2,visitor_exp:1,setup_speed:3,support_quality:3,vendor_stability:2,onboarding:2,sla:3 } },
+  { id:"security", label:"Security/Compliance", icon:"🛡️",
+    defaults:{ itar_workflows:3,cmmc_docs:3,nationality_verify:3,export_control_q:3,nda_esign:3,zone_restrict:3,watchlist:3,audit_trail:3,compliance_report:3,itar_audit_support:3,data_retention:3, cloud_saas:2,us_data:3,soc2:3,encryption:3,rbac:3,sso:3,mfa:3,gdpr_tools:3, kiosk:2,id_scan:3,passport:3,photo:3,preregister:3,badge_print:3,qr:2,walkin:3,contractor:3,multilingual:1,branded_kiosk:1, fully_selfservice:2,host_auto_notify:3,no_show_escalation:3,after_hours:3,intercom:2,mobile_host_app:2,delivery_handling:2,offline_mode:2, host_notify:3,denied_alert:3,evac:3, teams_slack:2,calendar:2,access_ctrl:3,camera_int:2,api:2, multi_door:3,multi_site:3,global_cn:2,global_mx:2,global_de:3,gdpr_de:3,centralized_mgmt:3, ease_of_use:1,visitor_exp:1,setup_speed:1,support_quality:2,vendor_stability:3,onboarding:2,sla:3 } },
 ];
 
-// Global location features that show conditional sub-questions
 const GLOBAL_FEATURES = { global_cn:"CN", global_mx:"MX", global_de:"DE", gdpr_de:"DE" };
-
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
 const allFeatures = CATEGORIES.flatMap(c => c.features);
+
+// ── STATE ──
 let weights = Object.fromEntries(allFeatures.map(f => [f.id, 2]));
 let activePersona = null;
+// Global location opinion: 0=No Opinion, 1=Not Needed, 2=Nice to Have, 3=Required
+let globalOpinion = { CN:0, MX:0, DE:0 };
+// Whether global feature rows are visible (shown when opinion >= 2)
+let globalVisible = { CN:false, MX:false, DE:false };
 
-// Global location toggles (yes/no determines if global features are visible)
-let globalNeeded = { CN: false, MX: false, DE: false };
+// ── SCORING ──
+const W_COLORS = { 0:"#334155", 1:"#64748b", 2:"#3b82f6", 3:"#dc2626" };
+const W_LABELS = { 0:"N/A", 1:"Not Needed", 2:"Nice to Have", 3:"Must Have" };
+const W_BG     = { 0:"transparent", 1:"rgba(255,255,255,0.03)", 2:"rgba(255,255,255,0.06)", 3:"rgba(220,38,38,0.07)" };
 
-// ─────────────────────────────────────────────
-// SCORING
-// ─────────────────────────────────────────────
 function computeScores() {
   return VENDORS.map(v => {
     let total = 0, maxT = 0;
@@ -277,53 +341,69 @@ function computeScores() {
       let cs = 0, cm = 0;
       cat.features.forEach(f => {
         const region = GLOBAL_FEATURES[f.id];
-        if (region && !globalNeeded[region]) return; // skip if location not needed
+        if (region && !globalVisible[region]) return;
         const w = weights[f.id];
-        if (w === 0) return; // N/A
-        if (w === 1) { // Not Needed — mild penalty for missing
-          if (f.scores[v.id] === 0) { cs += 0; cm += 0.5; } // slight drag
-          return;
-        }
+        if (w === 0) return;
+        if (w === 1) { if (f.scores[v.id] === 0) cm += 0.5; return; }
         const m = w === 3 ? 3 : 1;
         cs += f.scores[v.id] * m;
         cm += 2 * m;
       });
-      cats[cat.id] = { s: cs, m: cm, label: cat.label };
+      cats[cat.id] = { s:cs, m:cm, label:cat.label };
       total += cs; maxT += cm;
     });
-    const pct = maxT > 0 ? (total / maxT) * 100 : 0;
-    return { ...v, total, maxT, pct, cats };
+    return { ...v, total, maxT, pct: maxT > 0 ? (total/maxT)*100 : 0, cats };
   }).sort((a,b) => b.pct - a.pct);
 }
 
-// ─────────────────────────────────────────────
-// RENDER HELPERS
-// ─────────────────────────────────────────────
-const W_COLORS  = { 0:"#334155", 1:"#64748b", 2:"#3b82f6", 3:"#dc2626" };
-const W_LABELS  = { 0:"N/A", 1:"Not Needed", 2:"Nice to Have", 3:"Must Have" };
-const W_BG      = { 0:"transparent", 1:"rgba(255,255,255,0.03)", 2:"rgba(255,255,255,0.06)", 3:"rgba(220,38,38,0.07)" };
-
+// ── SLIDER GRADIENT ──
 function sliderGradient(val) {
-  const pct = (val / 3) * 100;
-  return `linear-gradient(to right, ${W_COLORS[val]} 0%, ${W_COLORS[val]} ${pct}%, #1e293b ${pct}%, #1e293b 100%)`;
+  const pct = (val/3)*100;
+  return `linear-gradient(to right,${W_COLORS[val]} 0%,${W_COLORS[val]} ${pct}%,#1e293b ${pct}%,#1e293b 100%)`;
 }
 
+// ── RENDER FEATURE ROW ──
 function renderFeatureRow(f) {
   const w = weights[f.id];
-  const isGlobal = !!GLOBAL_FEATURES[f.id];
   const region = GLOBAL_FEATURES[f.id];
-  const hidden = isGlobal && !globalNeeded[region];
+  const hidden = region && !globalVisible[region];
 
   const row = document.createElement('div');
   row.className = 'feature-row';
   row.id = 'row-' + f.id;
-  row.style.cssText = `background:${W_BG[w]};border-left-color:${W_COLORS[w]};${hidden?'display:none':''}`;
+  row.style.cssText = `background:${W_BG[w]};border-left-color:${W_COLORS[w]};${hidden?'display:none':'display:flex'}`;
 
-  const labelDiv = document.createElement('div');
-  labelDiv.style.cssText = 'flex:1;font-size:13px;line-height:1.4';
-  labelDiv.style.color = w === 0 ? '#334155' : w === 1 ? '#475569' : '#cbd5e1';
-  labelDiv.textContent = f.label;
+  // Label + tooltip wrapper
+  const labelWrap = document.createElement('div');
+  labelWrap.className = 'feature-label-wrap';
 
+  const tipWrap = document.createElement('div');
+  tipWrap.className = 'tip-wrap';
+  tipWrap.style.display = 'inline-flex';
+  tipWrap.style.alignItems = 'flex-start';
+  tipWrap.style.flexWrap = 'wrap';
+  tipWrap.style.gap = '2px';
+
+  const labelSpan = document.createElement('span');
+  labelSpan.id = 'flbl-' + f.id;
+  labelSpan.style.cssText = `font-size:13px;line-height:1.5;color:${w===0?'#334155':w===1?'#475569':'#cbd5e1'}`;
+  labelSpan.textContent = f.label;
+
+  const tipIcon = document.createElement('span');
+  tipIcon.className = 'tip-icon';
+  tipIcon.textContent = '?';
+  tipIcon.title = '';
+
+  const tipBox = document.createElement('div');
+  tipBox.className = 'tip-box';
+  tipBox.textContent = f.desc;
+
+  tipWrap.appendChild(labelSpan);
+  tipWrap.appendChild(tipIcon);
+  tipWrap.appendChild(tipBox);
+  labelWrap.appendChild(tipWrap);
+
+  // Slider
   const sliderWrap = document.createElement('div');
   sliderWrap.className = 'slider-wrap';
 
@@ -346,7 +426,7 @@ function renderFeatureRow(f) {
 
   sliderWrap.appendChild(slider);
   sliderWrap.appendChild(lbl);
-  row.appendChild(labelDiv);
+  row.appendChild(labelWrap);
   row.appendChild(sliderWrap);
   return row;
 }
@@ -357,37 +437,67 @@ function updateRow(fid) {
   if (!row) return;
   row.style.background = W_BG[w];
   row.style.borderLeftColor = W_COLORS[w];
-  const labelDiv = row.querySelector('div');
-  labelDiv.style.color = w === 0 ? '#334155' : w === 1 ? '#475569' : '#cbd5e1';
+  const lspan = document.getElementById('flbl-' + fid);
+  if (lspan) lspan.style.color = w===0?'#334155':w===1?'#475569':'#cbd5e1';
   const slider = row.querySelector('input[type=range]');
-  slider.value = w;
-  slider.style.background = sliderGradient(w);
+  if (slider) { slider.value = w; slider.style.background = sliderGradient(w); }
   const lbl = document.getElementById('lbl-' + fid);
   if (lbl) { lbl.style.color = W_COLORS[w]; lbl.textContent = W_LABELS[w]; }
 }
 
+// ── RENDER FEATURES COLUMN ──
 function renderFeaturesCol() {
   const col = document.getElementById('features-col');
   col.innerHTML = '';
 
-  // Global location toggles
+  // Global location section
   const gSection = document.createElement('div');
   gSection.style.cssText = 'margin-bottom:24px;background:#1e293b;border-radius:12px;border:1px solid #334155;padding:16px';
-  gSection.innerHTML = `<h2 style="margin-bottom:12px">Global Location Coverage</h2>
-    <p style="font-size:12px;color:#64748b;margin-bottom:14px;line-height:1.6">Does this VMS solution also need to cover Tolomatic's international locations? Toggle on any that apply — this will unlock the relevant features below.</p>`;
+  gSection.innerHTML = `<h2 style="margin-bottom:8px">Global Location Coverage</h2>
+    <p style="font-size:12px;color:#64748b;margin-bottom:14px;line-height:1.6">Does this VMS solution also need to support Tolomatic's international locations? Select your opinion for each site — choosing <strong style="color:#3b82f6">Nice to Have</strong> or <strong style="color:#dc2626">Required</strong> will unlock the detailed feature questions for that location below.</p>`;
 
-  [['CN','China (CN) facility'],['MX','Mexico (MX) facility'],['DE','Germany (DE) facility — GDPR applies']].forEach(([code,lbl])=>{
-    const row = document.createElement('div');
-    row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.04);border:1px solid #334155';
-    row.innerHTML = `<span style="font-size:13px;color:#cbd5e1">${lbl}</span>
-      <div style="display:flex;gap:8px">
-        <button id="gbtn-${code}-no" onclick="setGlobal('${code}',false)" class="persona-btn ${!globalNeeded[code]?'active':''}" style="padding:4px 12px;font-size:11px">Not needed</button>
-        <button id="gbtn-${code}-yes" onclick="setGlobal('${code}',true)" class="persona-btn ${globalNeeded[code]?'active':''}" style="padding:4px 12px;font-size:11px">Yes, include it</button>
+  const globalDefs = [
+    ['CN','China (CN) facility','The VMS would also need to work at Tolomatic\'s China location, handling check-ins there with appropriate language and network support.'],
+    ['MX','Mexico (MX) facility','The VMS would also need to operate at Tolomatic\'s Mexico facility, ideally managed from the same admin dashboard as the US site.'],
+    ['DE','Germany (DE) facility','The VMS would also need to work at Tolomatic\'s Germany facility. Note: Germany\'s GDPR privacy law adds specific requirements for handling visitor data that not all vendors support.'],
+  ];
+
+  globalDefs.forEach(([code, lbl, tipText]) => {
+    const gRow = document.createElement('div');
+    gRow.style.cssText = 'padding:10px;border-radius:6px;margin-bottom:8px;background:rgba(255,255,255,0.04);border:1px solid #334155';
+
+    // Label row with tooltip
+    const labelRow = document.createElement('div');
+    labelRow.style.cssText = 'display:flex;align-items:center;gap:6px;margin-bottom:8px';
+    labelRow.innerHTML = `<span style="font-size:13px;color:#cbd5e1;font-weight:600">${lbl}</span>
+      <div class="tip-wrap" style="display:inline-flex">
+        <span class="tip-icon">?</span>
+        <div class="tip-box">${tipText}</div>
       </div>`;
-    gSection.appendChild(row);
+
+    // Opinion buttons
+    const btnRow = document.createElement('div');
+    btnRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px';
+
+    [[0,'No Opinion'],[1,'Not Needed'],[2,'Nice to Have'],[3,'Required']].forEach(([val, btnLbl]) => {
+      const b = document.createElement('button');
+      b.className = 'gbtn' + (globalOpinion[code]===val ? ' active' : '');
+      b.id = `gbtn-${code}-${val}`;
+      b.style.borderColor = globalOpinion[code]===val ? G_COLORS[val] : '#334155';
+      b.style.color = globalOpinion[code]===val ? G_COLORS[val] : '#64748b';
+      if (globalOpinion[code]===val) b.style.background = `${G_COLORS[val]}18`;
+      b.textContent = btnLbl;
+      b.onclick = () => setGlobalOpinion(code, val);
+      btnRow.appendChild(b);
+    });
+
+    gRow.appendChild(labelRow);
+    gRow.appendChild(btnRow);
+    gSection.appendChild(gRow);
   });
   col.appendChild(gSection);
 
+  // Feature categories
   CATEGORIES.forEach(cat => {
     const section = document.createElement('div');
     section.style.marginBottom = '20px';
@@ -399,19 +509,31 @@ function renderFeaturesCol() {
   });
 }
 
-function setGlobal(code, val) {
-  globalNeeded[code] = val;
-  // Update button styles
-  document.getElementById(`gbtn-${code}-no`).classList.toggle('active', !val);
-  document.getElementById(`gbtn-${code}-yes`).classList.toggle('active', val);
-  // Show/hide relevant feature rows
+function setGlobalOpinion(code, val) {
+  globalOpinion[code] = val;
+  const show = val >= 2; // show detailed features if Nice to Have or Required
+  globalVisible[code] = show;
+
+  // Update all 4 buttons for this location
+  [[0,'No Opinion'],[1,'Not Needed'],[2,'Nice to Have'],[3,'Required']].forEach(([v, lbl]) => {
+    const b = document.getElementById(`gbtn-${code}-${v}`);
+    if (!b) return;
+    const isActive = val === v;
+    b.className = 'gbtn' + (isActive ? ' active' : '');
+    b.style.borderColor = isActive ? G_COLORS[v] : '#334155';
+    b.style.color = isActive ? G_COLORS[v] : '#64748b';
+    b.style.background = isActive ? `${G_COLORS[v]}18` : 'transparent';
+  });
+
+  // Show/hide dependent feature rows
   allFeatures.filter(f => GLOBAL_FEATURES[f.id] === code).forEach(f => {
     const row = document.getElementById('row-' + f.id);
-    if (row) row.style.display = val ? 'flex' : 'none';
+    if (row) row.style.display = show ? 'flex' : 'none';
   });
   renderResults();
 }
 
+// ── RENDER RESULTS ──
 function renderResults() {
   const ranked = computeScores();
   const list = document.getElementById('results-list');
@@ -441,17 +563,16 @@ function renderResults() {
     top.appendChild(info);
     item.appendChild(top);
 
-    // Category bars
     const bars = document.createElement('div');
     bars.style.paddingLeft = '38px';
     CATEGORIES.forEach(cat => {
       const bd = v.cats[cat.id];
       if (!bd || bd.m === 0) return;
-      const p = Math.min((bd.s / bd.m) * 100, 100);
-      const barColor = p >= 80 ? '#22c55e' : p >= 55 ? '#f59e0b' : '#ef4444';
+      const p = Math.min((bd.s/bd.m)*100, 100);
+      const bc = p>=80?'#22c55e':p>=55?'#f59e0b':'#ef4444';
       bars.innerHTML += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
         <div style="font-size:10px;color:#475569;width:130px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${cat.label}</div>
-        <div class="cat-bar-wrap"><div class="cat-bar-inner" style="width:${p}%;background:${barColor}"></div></div>
+        <div class="cat-bar-wrap"><div class="cat-bar-inner" style="width:${p}%;background:${bc}"></div></div>
         <span style="font-size:10px;color:#475569;width:28px;text-align:right">${Math.round(p)}%</span>
       </div>`;
     });
@@ -462,26 +583,14 @@ function renderResults() {
   // Winner box
   const winner = ranked[0];
   const wb = document.getElementById('winner-box');
-  wb.style.cssText = `background:linear-gradient(135deg,${winner.color}20,${winner.color}10);border:1px solid ${winner.color}40;border-radius:10px;padding:16px;margin-bottom:16px`;
   const gap = winner.pct - (ranked[1]?.pct||0);
+  wb.style.cssText = `background:linear-gradient(135deg,${winner.color}20,${winner.color}10);border:1px solid ${winner.color}40;border-radius:10px;padding:16px;margin-bottom:16px`;
   wb.innerHTML = `<div style="font-size:10px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px">🏆 Current Leader</div>
     <div style="font-size:16px;font-weight:800;color:#f1f5f9;margin-bottom:4px">${winner.name}</div>
-    <div style="font-size:12px;color:#94a3b8">Scores <strong style="color:${winner.color}">${Math.round(winner.pct)}%</strong> of weighted requirements. ${gap > 5 ? 'Clear frontrunner based on your weights.' : 'Close race — adjust sliders to explore sensitivity.'}</div>`;
-
-  // Pricing list
-  const pl = document.getElementById('pricing-list');
-  pl.innerHTML = '';
-  ranked.forEach(v => {
-    pl.innerHTML += `<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1e293b">
-      <span style="font-size:13px;color:#94a3b8"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${v.color};margin-right:8px;vertical-align:middle"></span>${v.name}</span>
-      <div style="text-align:right">
-        <span style="font-size:14px;font-weight:700;color:#f1f5f9">${v.price}/mo</span>
-        <div style="font-size:10px;color:#475569">${v.priceNote}</div>
-      </div>
-    </div>`;
-  });
+    <div style="font-size:12px;color:#94a3b8">Scores <strong style="color:${winner.color}">${Math.round(winner.pct)}%</strong> of weighted requirements. ${gap>5?'Clear frontrunner based on your weights.':'Close race — adjust sliders to explore sensitivity.'}</div>`;
 }
 
+// ── PERSONA BUTTONS ──
 function renderPersonaButtons() {
   const wrap = document.getElementById('persona-btns');
   PERSONAS.forEach(p => {
@@ -498,21 +607,32 @@ function selectPersona(pid) {
   activePersona = pid;
   const persona = PERSONAS.find(p => p.id === pid);
   if (!persona) return;
-  // Apply defaults
   Object.entries(persona.defaults).forEach(([id, val]) => {
     if (weights.hasOwnProperty(id)) weights[id] = val;
   });
-  // Update all rows
   allFeatures.forEach(f => updateRow(f.id));
-  // Update button states
   document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('persona-' + pid)?.classList.add('active');
+  const clearBtn = document.getElementById('clear-persona-btn');
+  clearBtn.style.display = 'inline-block';
+  const activeLabel = document.getElementById('persona-active-label');
+  activeLabel.textContent = `Role loaded: ${persona.icon} ${persona.label} — all sliders now reflect suggested defaults for this role. Adjust any that don't match your view.`;
+  activeLabel.style.display = 'block';
   renderResults();
 }
 
-// ─────────────────────────────────────────────
-// SUBMIT
-// ─────────────────────────────────────────────
+function clearPersona() {
+  activePersona = null;
+  // Reset all weights to 2 (Nice to Have)
+  allFeatures.forEach(f => { weights[f.id] = 2; });
+  allFeatures.forEach(f => updateRow(f.id));
+  document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('clear-persona-btn').style.display = 'none';
+  document.getElementById('persona-active-label').style.display = 'none';
+  renderResults();
+}
+
+// ── SUBMIT ──
 function handleSubmit() {
   const nameEl = document.getElementById('reviewer-name');
   const notesEl = document.getElementById('reviewer-notes');
@@ -526,73 +646,44 @@ function handleSubmit() {
   const persona = PERSONAS.find(p => p.id === activePersona);
   const ts = new Date().toISOString();
 
-  // ── STRUCTURED BLOCK (Claude-digestible) ──
+  const globalOpinionLabels = Object.entries(globalOpinion).map(([k,v]) => `"${k}":"${G_LABELS[v]}"`).join(',');
   const structuredWeights = allFeatures.map(f => `"${f.id}":${weights[f.id]}`).join(',');
   const structuredRanked = ranked.map((v,i) => `{"rank":${i+1},"vendor":"${v.id}","name":"${v.name}","pct":${Math.round(v.pct)}}`).join(',');
-  const globalState = `{"CN":${globalNeeded.CN},"MX":${globalNeeded.MX},"DE":${globalNeeded.DE}}`;
 
-  const structured = `===SCORECARD_DATA_START===
-{
-  "reviewer": "${name}",
-  "persona": "${persona ? persona.label : 'Not selected'}",
-  "timestamp": "${ts}",
-  "globalLocations": ${globalState},
-  "weights": {${structuredWeights}},
-  "ranked": [${structuredRanked}],
-  "notes": ${JSON.stringify(notes||'')}
-}
-===SCORECARD_DATA_END===`;
+  const structured = `===SCORECARD_DATA_START===\n{\n  "reviewer":"${name}",\n  "persona":"${persona?persona.label:'Not selected'}",\n  "timestamp":"${ts}",\n  "globalOpinions":{${globalOpinionLabels}},\n  "weights":{${structuredWeights}},\n  "ranked":[${structuredRanked}],\n  "notes":${JSON.stringify(notes||'')}\n}\n===SCORECARD_DATA_END===`;
 
-  // ── HUMAN-READABLE BLOCK ──
   const rankLines = ranked.map((v,i) => `  ${i+1}. ${v.name} — ${Math.round(v.pct)}%`).join('\n');
-  const mustHaves = allFeatures.filter(f => weights[f.id]===3).map(f=>`  • ${f.label}`).join('\n');
-  const naItems   = allFeatures.filter(f => weights[f.id]===0).map(f=>`  • ${f.label}`).join('\n');
-  const notNeeded = allFeatures.filter(f => weights[f.id]===1).map(f=>`  • ${f.label}`).join('\n');
-  const globalSummary = Object.entries(globalNeeded).map(([k,v])=>`  ${k}: ${v?'Yes — include':'Not needed'}`).join('\n');
-
+  const mustHaves = allFeatures.filter(f=>weights[f.id]===3).map(f=>`  • ${f.label}`).join('\n');
+  const naItems   = allFeatures.filter(f=>weights[f.id]===0).map(f=>`  • ${f.label}`).join('\n');
+  const notNeeded = allFeatures.filter(f=>weights[f.id]===1).map(f=>`  • ${f.label}`).join('\n');
+  const globalSummary = Object.entries(globalOpinion).map(([k,v])=>`  ${k}: ${G_LABELS[v]}`).join('\n');
   const featureLines = CATEGORIES.map(cat => {
     const lines = cat.features.map(f => {
       const region = GLOBAL_FEATURES[f.id];
-      if (region && !globalNeeded[region]) return null;
+      if (region && !globalVisible[region]) return null;
       return `    [${weights[f.id]}] ${W_LABELS[weights[f.id]].padEnd(13)} ${f.label}`;
     }).filter(Boolean).join('\n');
     return `${cat.label}\n${lines}`;
   }).join('\n\n');
 
   const body = [
-    structured,
-    '',
+    structured,'',
     '════════════════════════════════════════',
     'ITAR / CMMC VMS Scorecard Submission',
     '════════════════════════════════════════',
     `Reviewer  : ${name}`,
-    `Role      : ${persona ? persona.label : 'Not selected'}`,
+    `Role      : ${persona?persona.label:'Not selected'}`,
     `Submitted : ${new Date().toLocaleString()}`,
-    '',
-    '── STACK-RANKED RESULTS ────────────────',
-    rankLines,
-    '',
-    '── GLOBAL LOCATIONS ────────────────────',
-    globalSummary,
-    '',
-    `── MUST-HAVE FEATURES (${allFeatures.filter(f=>weights[f.id]===3).length}) ───────────────`,
-    mustHaves || '  (none selected)',
-    '',
-    `── NOT NEEDED (${allFeatures.filter(f=>weights[f.id]===1).length}) ─────────────────────`,
-    notNeeded || '  (none)',
-    '',
-    `── MARKED N/A — NOT RELEVANT TO MY ROLE (${allFeatures.filter(f=>weights[f.id]===0).length}) ──`,
-    naItems || '  (none)',
-    '',
-    '── FULL FEATURE WEIGHTINGS ─────────────',
-    featureLines,
-    '',
-    notes ? `── NOTES ───────────────────────────────\n${notes}` : '',
+    '','── STACK-RANKED RESULTS ────────────────',rankLines,
+    '','── GLOBAL LOCATION OPINIONS ────────────',globalSummary,
+    `'','── MUST-HAVE FEATURES (${allFeatures.filter(f=>weights[f.id]===3).length}) ───────────────`,mustHaves||'  (none)',
+    `'','── NOT NEEDED (${allFeatures.filter(f=>weights[f.id]===1).length}) ─────────────────────`,notNeeded||'  (none)',
+    `'','── MARKED N/A (${allFeatures.filter(f=>weights[f.id]===0).length}) ──────────────────────`,naItems||'  (none)',
+    '','── FULL FEATURE WEIGHTINGS ─────────────',featureLines,
+    notes?`\n── NOTES ───────────────────────────────\n${notes}`:'',
   ].join('\n');
 
-  const subject = encodeURIComponent(`VMS Scorecard — ${name}${persona?' ('+persona.label+')':''}`);
-  window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${encodeURIComponent(body)}`;
-
+  window.location.href = `mailto:${RECIPIENT}?subject=${encodeURIComponent(`VMS Scorecard — ${name}${persona?' ('+persona.label+')':''}`)}&body=${encodeURIComponent(body)}`;
   document.getElementById('submit-card').style.display = 'none';
   document.getElementById('submit-success').style.display = 'block';
 }
@@ -602,9 +693,73 @@ function resetSubmit() {
   document.getElementById('submit-success').style.display = 'none';
 }
 
-// ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
+// ── SCORES LOOKUP (ocr,facility,signin,recep,lobby,verkada) ── 0=No,1=Partial,2=Full
+const SCORES = {
+  itar_workflows:     {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1},
+  cmmc_docs:          {ocr:0,facility:2,signin:1,recep:1,lobby:0,verkada:0},
+  nationality_verify: {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  export_control_q:   {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1},
+  nda_esign:          {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  zone_restrict:      {ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  watchlist:          {ocr:1,facility:2,signin:0,recep:0,lobby:2,verkada:1},
+  audit_trail:        {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  compliance_report:  {ocr:2,facility:2,signin:1,recep:1,lobby:1,verkada:0},
+  itar_audit_support: {ocr:2,facility:2,signin:1,recep:1,lobby:0,verkada:0},
+  data_retention:     {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1},
+  cloud_saas:         {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  us_data:            {ocr:2,facility:2,signin:1,recep:2,lobby:1,verkada:1},
+  soc2:               {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2},
+  encryption:         {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  rbac:               {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  sso:                {ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  mfa:                {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2},
+  gdpr_tools:         {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  kiosk:              {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  id_scan:            {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  passport:           {ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2},
+  photo:              {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  preregister:        {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  badge_print:        {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  qr:                 {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  walkin:             {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  contractor:         {ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  multilingual:       {ocr:1,facility:2,signin:2,recep:1,lobby:1,verkada:2},
+  branded_kiosk:      {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  fully_selfservice:  {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  host_auto_notify:   {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  no_show_escalation: {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:1},
+  after_hours:        {ocr:1,facility:2,signin:1,recep:2,lobby:1,verkada:2},
+  intercom:           {ocr:0,facility:1,signin:0,recep:0,lobby:0,verkada:2},
+  mobile_host_app:    {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  delivery_handling:  {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  offline_mode:       {ocr:0,facility:0,signin:0,recep:2,lobby:0,verkada:0},
+  host_notify:        {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  denied_alert:       {ocr:2,facility:2,signin:1,recep:2,lobby:2,verkada:2},
+  evac:               {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2},
+  teams_slack:        {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  calendar:           {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  access_ctrl:        {ocr:0,facility:2,signin:0,recep:2,lobby:0,verkada:2},
+  camera_int:         {ocr:1,facility:1,signin:0,recep:0,lobby:0,verkada:2},
+  api:                {ocr:1,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  multi_door:         {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  multi_site:         {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:2},
+  global_cn:          {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  global_mx:          {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  global_de:          {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2},
+  gdpr_de:            {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:1},
+  centralized_mgmt:   {ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  ease_of_use:        {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  visitor_exp:        {ocr:1,facility:2,signin:2,recep:2,lobby:1,verkada:2},
+  setup_speed:        {ocr:1,facility:1,signin:2,recep:2,lobby:2,verkada:1},
+  support_quality:    {ocr:2,facility:2,signin:2,recep:2,lobby:2,verkada:1},
+  vendor_stability:   {ocr:2,facility:1,signin:2,recep:2,lobby:1,verkada:2},
+  onboarding:         {ocr:2,facility:2,signin:2,recep:2,lobby:1,verkada:1},
+  sla:                {ocr:0,facility:2,signin:2,recep:2,lobby:0,verkada:2},
+};
+// Patch scores onto every feature at runtime
+CATEGORIES.forEach(cat => cat.features.forEach(f => { f.scores = SCORES[f.id] || {ocr:0,facility:0,signin:0,recep:0,lobby:0,verkada:0}; }));
+
+// ── INIT ──
 renderPersonaButtons();
 renderFeaturesCol();
 renderResults();
